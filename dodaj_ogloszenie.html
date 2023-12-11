@@ -37,12 +37,12 @@
 <!-- Formularz dodawania ogłoszenia -->
 <section class="add-ad-form">
   <h2>Dodaj ogłoszenie</h2>
-  <form action="submit_ad.php" method="post">
+  <form action="submit_ad.php" method="post" enctype="multipart/form-data">
     <label for="title">Tytuł:</label>
     <input type="text" id="title" name="title" required>
 
     <label for="opis">Opis ogłoszenia:</label>
-    <textarea id="opis" name="opis" rows="6" cols="50"></textarea>
+    <textarea id="opis" name="opis" rows="6" cols="50" required></textarea>
 
     <label for="category">Kategoria:</label>
     <select id="category" name="category">
@@ -54,17 +54,45 @@
       <option value="Inne">Inne</option>
     </select>
 
-    <label for="color">Kolor:</label>
-    <input type="text" id="color" name="color">
+    <label for="color">Kolory:</label>
+    <select id="color" name="Kolor">
+      <option value="czerwony">Czerwony</option>
+      <option value="niebieski">Niebieski</option>
+      <option value="zielony">Zielony</option>
+      <option value="biały">Biały</option>
+      <option value="czarny">Czarny</option>
+      <option value="pomarańczowy">Pomarańczowy</option>
+      <option value="różowy">Różowy</option>
+      <option value="fioletowy">Fioletowy</option>
+      <option value="żółty">Żółty</option>
+      <option value="brązowy">Brązowy</option>
+      <option value="szary">Szary</option>
+      <option value="złoty">Złoty</option>
+      <option value="srebrny">Srebrny</option>
+    </select>
 
-    <label for="size">Rozmiar:</label>
-    <input type="text" id="size" name="size">
+    </select>
+
+    <label for="size">Rozmiary:</label>
+    <select id="size" name="Rozmiar">
+      <option value="XS">XS</option>
+      <option value="S">S</option>
+      <option value="M">M</option>
+      <option value="L">L</option>
+      <option value="XL">XL</option>
+      <option value="XXL">XXL</option>
+    </select>
+
+    </select>
 
     <label for="material">Materiał:</label>
-    <input type="text" id="material" name="material">
+    <input type="text" id="material" name="material" required>
 
     <label for="price">Cena:</label>
     <input type="number" id="price" name="price" required>
+
+    <label for="images">Zdjęcia (max 5):</label>
+    <input type="file" id="images" name="images[]" accept="image/*" multiple>
 
     <button type="submit">Dodaj ogłoszenie</button>
   </form>
