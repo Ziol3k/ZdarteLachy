@@ -1,247 +1,259 @@
-/*! HTML5 Boilerplate v9.0.0-RC1 | MIT License | https://html5boilerplate.com/ */
-
-/* main.css 3.0.0 | MIT License | https://github.com/h5bp/main.css#readme */
-/*
- * What follows is the result of much research on cross-browser styling.
- * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
- * Kroc Camen, and the H5BP dev community and team.
- */
-
-/* ==========================================================================
-   Base styles: opinionated defaults
-   ========================================================================== */
-
-html {
-  color: #222;
-  font-size: 1em;
-  line-height: 1.4;
-}
-
-/*
- * Remove text-shadow in selection highlight:
- * https://twitter.com/miketaylr/status/12228805301
- *
- * Customize the background color to match your design.
- */
-
-::-moz-selection {
-  background: #b3d4fc;
-  text-shadow: none;
-}
-
-::selection {
-  background: #b3d4fc;
-  text-shadow: none;
-}
-
-/*
- * A better looking default horizontal rule
- */
-
-hr {
-  display: block;
-  height: 1px;
-  border: 0;
-  border-top: 1px solid #ccc;
-  margin: 1em 0;
-  padding: 0;
-}
-
-/*
- * Remove the gap between audio, canvas, iframes,
- * images, videos and the bottom of their containers:
- * https://github.com/h5bp/html5-boilerplate/issues/440
- */
-
-audio,
-canvas,
-iframe,
-img,
-svg,
-video {
-  vertical-align: middle;
-}
-
-/*
- * Remove default fieldset styles.
- */
-
-fieldset {
-  border: 0;
+/* style.css */
+body {
   margin: 0;
   padding: 0;
+  font-family: Arial, sans-serif;
 }
 
-/*
- * Allow only vertical resizing of textareas.
- */
+header {
+  position: relative;
+  height: 400px;
+}
+
+.header-image {
+  background-image: url('../img/header.jpg');
+  background-position: center;
+  width: 100%;
+  height: 100%;
+}
+
+.header-image::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+nav {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+
+nav ul li {
+  margin-right: 20px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 20px;
+  transition: background-color 0.3s ease;
+}
+
+nav a:hover {
+  background-color: #555;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+}
+
+.search-bar input {
+  padding: 8px;
+  margin-right: 5px;
+  border-radius: 20px;
+  border: none;
+  width: 300px;
+}
+
+.user-actions {
+  display: flex;
+  align-items: center;
+}
+
+.cart,
+.login-register,
+.nav-button {
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.cart:hover,
+.login-register:hover,
+.nav-button:hover {
+  background-color: #555;
+}
+
+.center-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.center-text h1 {
+  font-family: Apple Chancery, cursive;
+  font-size: 5em;
+  font-weight: bold;
+  margin: 0;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  position: relative;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar a {
+  text-decoration: none;
+  color: #fff;
+  display: block;
+  padding: 10px 0;
+  transition: background-color 0.3s ease;
+}
+
+.sidebar a:hover {
+  background-color: #555;
+}
+.sidebar .categories{
+  margin-bottom: 20px;
+}
+
+.sidebar .sub-menu {
+  list-style: none;
+  padding-left: 20px;
+  display: block;
+}
+
+.sidebar .expanded .sub-menu {
+  display: block;
+}
+
+
+.form-container {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px auto;
+}
+
+.form-background {
+  background-color: #ccc;
+  border-radius: 10px;
+  padding: 20px;
+  width: 40%;
+}
+
+.left-background {
+  margin-right: 10px;
+}
+
+.right-background {
+  margin-left: 10px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+form label {
+  margin-bottom: 5px;
+}
+
+form input {
+  margin-bottom: 10px;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #888;
+}
+
+form button {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #333;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+form button:hover {
+  background-color: #555;
+}
+
+
+
+/* Stylizacja formularza dodawania ogłoszenia */
+.add-ad-form {
+  background-color: #f0f0f0; /* Kolor tła formularza */
+  padding: 20px;
+  border-radius: 10px; /* Zaokrąglone rogi */
+  margin: 20px; /* Margines wokół formularza */
+  max-width: 600px; /* Maksymalna szerokość formularza */
+  margin-left: auto; /* Wycentrowanie formularza */
+  margin-right: auto; /* Wycentrowanie formularza */
+}
+
+.add-ad-form h2 {
+  text-align: center;
+  color: #333; /* Kolor tekstu */
+}
+
+.add-ad-form label {
+  display: block;
+  margin: 10px 0; /* Odstęp między etykietami */
+}
+
+/* Pola wyboru kategorii, koloru, rozmiaru, materiału i ceny */
+.add-ad-form select {
+  width: calc(100% - 20px); /* Szerokość 100%, ale uwzględniając odstępy */
+  padding: 8px; /* Wewnętrzny odstęp */
+  margin: 6px 0; /* Zewnętrzny odstęp */
+  box-sizing: border-box; /* Wlicza padding i border do całkowitej szerokości/każdego pola */
+}
+
+.add-ad-form input[type="text"],
+.add-ad-form input[type="number"] {
+  width: calc(100% - 20px); /* Szerokość 100%, ale uwzględniając odstępy */
+  padding: 8px; /* Wewnętrzny odstęp */
+  margin: 6px 0; /* Zewnętrzny odstęp */
+  box-sizing: border-box; /* Wlicza padding i border do całkowitej szerokości/każdego pola */
+}
+
+.add-ad-form button {
+  background-color: #333; /* Kolor tła przycisku */
+  color: #fff; /* Kolor tekstu przycisku */
+  padding: 10px 20px; /* Wewnętrzny odstęp */
+  border: none; /* Brak obramowania */
+  border-radius: 5px; /* Zaokrąglone rogi */
+  cursor: pointer; /* Kursor wskazujący na możliwość interakcji */
+  transition: background-color 0.3s ease; /* Płynne przejście koloru tła */
+}
+
+.add-ad-form button:hover {
+  background-color: #555; /* Kolor tła przycisku po najechaniu myszką */
+}
 
 textarea {
-  resize: vertical;
+  width: calc(100% - 20px);
+  box-sizing: border-box;
 }
-
-/* ==========================================================================
-   Author's custom styles
-   ========================================================================== */
-
-/* ==========================================================================
-   Helper classes
-   ========================================================================== */
-
-/*
- * Hide visually and from screen readers
- */
-
-.hidden,
-[hidden] {
-  display: none !important;
-}
-
-/*
- * Hide only visually, but have it available for screen readers:
- * https://snook.ca/archives/html_and_css/hiding-content-for-accessibility
- *
- * 1. For long content, line feeds are not interpreted as spaces and small width
- *    causes content to wrap 1 word per line:
- *    https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
- */
-
-.visually-hidden {
-  border: 0;
-  clip: rect(0, 0, 0, 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-  /* 1 */
-}
-
-/*
- * Extends the .visually-hidden class to allow the element
- * to be focusable when navigated to via the keyboard:
- * https://www.drupal.org/node/897638
- */
-
-.visually-hidden.focusable:active,
-.visually-hidden.focusable:focus {
-  clip: auto;
-  height: auto;
-  margin: 0;
-  overflow: visible;
-  position: static;
-  white-space: inherit;
-  width: auto;
-}
-
-/*
- * Hide visually and from screen readers, but maintain layout
- */
-
-.invisible {
-  visibility: hidden;
-}
-
-/*
- * Clearfix: contain floats
- *
- * The use of `table` rather than `block` is only necessary if using
- * `::before` to contain the top-margins of child elements.
- */
-
-.clearfix::before,
-.clearfix::after {
-  content: "";
-  display: table;
-}
-
-.clearfix::after {
-  clear: both;
-}
-
-/* ==========================================================================
-   EXAMPLE Media Queries for Responsive Design.
-   These examples override the primary ('mobile first') styles.
-   Modify as content requires.
-   ========================================================================== */
-
-@media only screen and (min-width: 35em) {
-  /* Style adjustments for viewports that meet the condition */
-}
-
-@media print,
-  (-webkit-min-device-pixel-ratio: 1.25),
-  (min-resolution: 1.25dppx),
-  (min-resolution: 120dpi) {
-  /* Style adjustments for high resolution devices */
-}
-
-/* ==========================================================================
-   Print styles.
-   Inlined to avoid the additional HTTP request:
-   https://www.phpied.com/delay-loading-your-print-css/
-   ========================================================================== */
-
-@media print {
-  *,
-  *::before,
-  *::after {
-    background: #fff !important;
-    color: #000 !important;
-    /* Black prints faster */
-    box-shadow: none !important;
-    text-shadow: none !important;
-  }
-
-  a,
-  a:visited {
-    text-decoration: underline;
-  }
-
-  a[href]::after {
-    content: " (" attr(href) ")";
-  }
-
-  abbr[title]::after {
-    content: " (" attr(title) ")";
-  }
-
-  /*
-   * Don't show links that are fragment identifiers,
-   * or use the `javascript:` pseudo protocol
-   */
-  a[href^="#"]::after,
-  a[href^="javascript:"]::after {
-    content: "";
-  }
-
-  pre {
-    white-space: pre-wrap !important;
-  }
-
-  pre,
-  blockquote {
-    border: 1px solid #999;
-    page-break-inside: avoid;
-  }
-
-  tr,
-  img {
-    page-break-inside: avoid;
-  }
-
-  p,
-  h2,
-  h3 {
-    orphans: 3;
-    widows: 3;
-  }
-
-  h2,
-  h3 {
-    page-break-after: avoid;
-  }
-}
-

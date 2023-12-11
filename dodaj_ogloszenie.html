@@ -1,0 +1,74 @@
+<!-- dodaj_ogloszenie.html -->
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <title>Zdarte Łachy - Dodaj Ogłoszenie</title>
+</head>
+<body>
+
+<header>
+  <a href="index.html">
+    <div class="header-image"></div>
+    <div class="center-text">
+      <h1>Zdarte Łachy</h1>
+    </div>
+  </a>
+</header>
+
+<nav>
+  <ul>
+    <li><a href="dodaj_ogloszenie.html">Dodaj ogłoszenie</a></li>
+  </ul>
+  <div class="search-bar">
+    <label>
+      <input type="text" placeholder="Szukaj...">
+    </label>
+    <button type="button">Szukaj</button>
+  </div>
+  <ul>
+    <li><a href="koszyk.html">Koszyk</a></li>
+    <li><a href="logowanie_rejestracja.html">Logowanie/Rejestracja</a></li>
+  </ul>
+</nav>
+
+<!-- Formularz dodawania ogłoszenia -->
+<section class="add-ad-form">
+  <h2>Dodaj ogłoszenie</h2>
+  <form action="submit_ad.php" method="post">
+    <label for="title">Tytuł:</label>
+    <input type="text" id="title" name="title" required>
+
+    <label for="opis">Opis ogłoszenia:</label>
+    <textarea id="opis" name="opis" rows="6" cols="50"></textarea>
+
+    <label for="category">Kategoria:</label>
+    <select id="category" name="category">
+      <option value="Kurtki">Kurtki</option>
+      <option value="Bluzy">Bluzy</option>
+      <option value="Koszulki">Koszulki</option>
+      <option value="Koszule">Koszule</option>
+      <option value="Spodnie">Spodnie</option>
+      <option value="Inne">Inne</option>
+    </select>
+
+    <label for="color">Kolor:</label>
+    <input type="text" id="color" name="color">
+
+    <label for="size">Rozmiar:</label>
+    <input type="text" id="size" name="size">
+
+    <label for="material">Materiał:</label>
+    <input type="text" id="material" name="material">
+
+    <label for="price">Cena:</label>
+    <input type="number" id="price" name="price" required>
+
+    <button type="submit">Dodaj ogłoszenie</button>
+  </form>
+</section>
+
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!-- logowanie_rejestracja.html -->
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <title>Zdarte Łachy - Logowanie/Rejestracja</title>
+</head>
+<body>
+
+<header>
+  <a href="index.html">
+    <div class="header-image"></div>
+    <div class="center-text">
+      <h1>Zdarte Łachy</h1>
+    </div>
+  </a>
+</header>
+
+<nav>
+  <ul>
+    <li><a href="dodaj_ogloszenie.html">Dodaj ogłoszenie</a></li>
+    <li><a href="koszyk.html">Koszyk</a></li>
+    <li><a href="logowanie_rejestracja.html">Logowanie/Rejestracja</a></li>
+  </ul>
+  <div class="search-bar">
+    <label>
+      <input type="text" placeholder="Szukaj...">
+    </label>
+    <button type="button">Szukaj</button>
+  </div>
+  <div class="user-actions">
+    <div class="cart">Koszyk</div>
+    <div class="login-register">Logowanie/Rejestracja</div>
+  </div>
+</nav>
+
+
+<!-- Formularz logowania -->
+<div class="form-container">
+  <div class="form-background left-background">
+    <form class="login-form" action="#" method="post">
+      <h2>Logowanie</h2>
+      <label for="login">Login:</label>
+      <input type="text" id="login" name="login" required>
+      <label for="password">Hasło:</label>
+      <input type="password" id="password" name="password" required>
+      <button type="submit">Zaloguj</button>
+    </form>
+  </div>
+
+  <!-- Formularz rejestracji -->
+  <div class="form-background right-background">
+    <form class="register-form" action="#" method="post">
+      <h2>Rejestracja</h2>
+      <label for="email">Adres email:</label>
+      <input type="email" id="email" name="email" required>
+      <label for="username">Login:</label>
+      <input type="text" id="username" name="username" required>
+      <label for="firstName">Imię:</label>
+      <input type="text" id="firstName" name="firstName" required>
+      <label for="lastName">Nazwisko:</label>
+      <input type="text" id="lastName" name="lastName" required>
+      <label for="password">Hasło:</label>
+      <input type="password" id="password" name="password" required>
+      <label for="confirmPassword">Powtórz hasło:</label>
+      <input type="password" id="confirmPassword" name="confirmPassword" required>
+      <button type="submit">Zarejestruj</button>
+    </form>
+  </div>
+</div>
+
+<script defer src="js/script.js"></script>
+</body>
+</html>
