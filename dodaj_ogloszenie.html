@@ -1,4 +1,3 @@
-<!-- dodaj_ogloszenie.html -->
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -71,8 +70,6 @@
       <option value="srebrny">Srebrny</option>
     </select>
 
-    </select>
-
     <label for="size">Rozmiary:</label>
     <select id="size" name="Rozmiar">
       <option value="XS">XS</option>
@@ -81,8 +78,6 @@
       <option value="L">L</option>
       <option value="XL">XL</option>
       <option value="XXL">XXL</option>
-    </select>
-
     </select>
 
     <label for="material">Materiał:</label>
@@ -94,9 +89,18 @@
     <label for="images">Zdjęcia (max 5):</label>
     <input type="file" id="images" name="images[]" accept="image/*" multiple>
 
-    <button type="submit">Dodaj ogłoszenie</button>
+    <button type="submit" id="submitBtn" onclick="showConfirmation()">Dodaj ogłoszenie</button>
   </form>
+
+  <!-- Komunikat po dodaniu ogłoszenia -->
+  <div id="confirmationMessage" style="display: none; margin-top: 20px;">
+    <p>Ogłoszenie zostało dodane!!!</p>
+    <button onclick="redirectToProduct()">Zatwierdź</button>
+  </div>
 </section>
+
+<!-- Ładowanie pliku script.js -->
+<script defer src="js/script.js"></script>
 
 </body>
 </html>
