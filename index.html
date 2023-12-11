@@ -1,4 +1,3 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -9,45 +8,85 @@
 </head>
 <body>
 
-<header>
-  <a href="index.html">
-    <div class="header-image"></div>
-    <div class="center-text">
-      <h1>Zdarte Łachy</h1>
-    </div>
-  </a>
-</header>
 
-<nav>
-  <ul>
-    <li><a href="dodaj_ogloszenie.html">Dodaj ogłoszenie</a></li>
-  </ul>
-  <div class="search-bar">
-    <label>
-      <input type="text" placeholder="Szukaj...">
-    </label>
-    <button type="button">Szukaj</button>
-  </div>
-  <ul>
-    <li><a href="koszyk.html">Koszyk</a></li>
-    <li><a href="logowanie_rejestracja.html">Logowanie/Rejestracja</a></li>
-  </ul>
-</nav>
 
-<!-- Boczne menu -->
-<aside class="sidebar">
-  <ul>
-    <li class="categories" id="categoriesBtn">Kategorie</li>
-    <ul class="sub-menu" id="categoriesMenu">
-      <li><a href="#" data-category="Kurtki">Kurtki</a></li>
-      <li><a href="#" data-category="Bluzy">Bluzy</a></li>
-      <li><a href="#" data-category="Koszulki">Koszulki</a></li>
-      <li><a href="#" data-category="Koszule">Koszule</a></li>
-      <li><a href="#" data-category="Spodnie">Spodnie</a></li>
+  <header>
+    <a href="index.html">
+      <div class="header-image"></div>
+      <div class="center-text">
+        <h1>Zdarte Łachy</h1>
+      </div>
+    </a>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="dodaj_ogloszenie.html">Dodaj ogłoszenie</a></li>
     </ul>
-  </ul>
-</aside>
+    <div class="search-bar">
+      <label>
+        <input type="text" placeholder="Szukaj...">
+      </label>
+      <button type="button">Szukaj</button>
+    </div>
+    <ul>
+      <li><a href="koszyk.html">Koszyk</a></li>
+      <li><a href="logowanie_rejestracja.html">Logowanie/Rejestracja</a></li>
+    </ul>
+  </nav>
+  <div class="container">
+  <!-- Boczne menu -->
+  <aside class="sidebar">
+    <ul>
+      <li class="categories" id="categoriesBtn">Kategorie</li>
+      <ul class="sub-menu" id="categoriesMenu">
+        <li><a href="#" data-category="Kurtki">Kurtki</a></li>
+        <li><a href="#" data-category="Bluzy">Bluzy</a></li>
+        <li><a href="#" data-category="Koszulki">Koszulki</a></li>
+        <li><a href="#" data-category="Koszule">Koszule</a></li>
+        <li><a href="#" data-category="Spodnie">Spodnie</a></li>
+      </ul>
+    </ul>
+  </aside>
 
+  <!-- Produkty na stronie głównej -->
+  <section class="products-container">
+  <section class="products">
+    <div class="product">
+      <a href="produkt1.html">
+        <img src="img/ubranie1.jpg" alt="Produkt 1">
+        <h3>Nazwa Produktu 1</h3>
+        <p>Cena: $50.00</p>
+      </a>
+    </div>
+    <div class="product">
+      <img src="img/ubranie1.jpg" alt="Produkt 2">
+      <h3>Nazwa Produktu 2</h3>
+      <p>Cena: $45.00</p>
+    </div>
+    <div class="product">
+      <img src="img/ubranie1.jpg" alt="Produkt 3">
+      <h3>Nazwa Produktu 3</h3>
+      <p>Cena: $60.00</p>
+    </div>
+    <div class="product">
+      <img src="img/ubranie1.jpg" alt="Produkt 4">
+      <h3>Nazwa Produktu 4</h3>
+      <p>Cena: $55.00</p>
+    </div>
+    <div class="product">
+      <img src="img/ubranie1.jpg" alt="Produkt 5">
+      <h3>Nazwa Produktu 5</h3>
+      <p>Cena: $40.00</p>
+    </div>
+    <div class="product">
+      <img src="img/ubranie1.jpg" alt="Produkt 6">
+      <h3>Nazwa Produktu 6</h3>
+      <p>Cena: $70.00</p>
+    </div>
+  </section>
+  </section>
+</div>
 
 <script defer src="js/script.js"></script>
 </body>
