@@ -34,8 +34,6 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: relative;
-  z-index: 2;
 }
 
 nav ul {
@@ -48,13 +46,15 @@ nav ul li {
   margin-right: 20px;
 }
 
-nav a {
+nav a,
+nav button {
   text-decoration: none;
   color: #fff;
   padding: 10px 20px;
   border-radius: 20px;
   transition: background-color 0.3s ease;
 }
+
 
 nav a:hover {
   background-color: #555;
@@ -71,6 +71,24 @@ nav a:hover {
   border-radius: 20px;
   border: none;
   width: 300px;
+}
+
+.navbar-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+#myProfile {
+  display: flex; /* Ustawia elementy poziomo obok siebie */
+  align-items: center; /* Wyrównuje elementy wertykalnie do środka */
+}
+
+.avatar {
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  margin-right: 5px; /* Odstęp między awatarem a tekstem */
 }
 
 .user-actions {
@@ -201,6 +219,20 @@ form button {
 
 form button:hover {
   background-color: #555;
+}
+
+#logoutButton {
+  cursor: pointer;
+}
+
+
+
+.profile-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+  margin-right: 10px; /* Odstęp między "Mój Profil" a "Wyloguj" */
 }
 
 
@@ -354,4 +386,72 @@ textarea {
 
 .characteristics li {
   margin-bottom: 5px;
+}
+
+
+
+footer {
+  background-color: #333;
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer-title {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.footer-icons a {
+  color: white;
+  text-decoration: none;
+  margin: 0 10px;
+  font-size: 24px;
+}
+
+.product-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+.product-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+@media screen and (max-width: 768px) {
+  .filler {
+    min-height: 120px;
+  }
+
+  .small_title {
+    display: inline;
+    margin-left: 20px;
+  }
+
+  .bar-title {
+    display: none;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .content {
+    padding: 10px;
+  }
+
+  .main-content {
+    width: 100%;
+  }
+
+  .sidebar {
+    width: 93%;
+    margin-left: 20px;
+  }
 }

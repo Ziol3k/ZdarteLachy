@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="pl">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/style.css">
-  <title>Zdarte Łachy - Sklep Internetowy</title>
+  <title>Profil Użytkownika</title>
 </head>
-
+<body>
 <header>
   <a href="index.html">
     <div class="header-image"></div>
@@ -16,7 +15,6 @@
     </div>
   </a>
 </header>
-
 
 <nav>
   <ul>
@@ -33,36 +31,37 @@
     <li><a href="koszyk.html">Koszyk</a></li>
     <ul>
       <li id="loginRegister"><a href="logowanie_rejestracja.html">Logowanie/Rejestracja</a></li>
-      <!-- Ukryty domyślnie przycisk Mój Profil -->
+      <!-- Ukryty domyślnie kontener Mój Profil i Wyloguj -->
       <li id="myProfile" style="display: none;">
-        <img src="img/avatar.png" alt="Avatar" style="width: 30px; height: 30px;">
-        <a href="moj_profil.html">Mój Profil</a>
+        <a href="#" id="logoutButton" class="navbar-button">Wyloguj</a>
       </li>
+
     </ul>
 
   </ul>
 </nav>
 
-
-<body>
-<div class="product-container" id="product-container">
-  <!-- Tutaj będą dynamicznie dodawane szczegóły produktu -->
+<div class="profile-container">
+  <h1>Profil Użytkownika</h1>
+  <div id="profileDetails">
+    <!-- Tutaj będą wyświetlane szczegóły profilu -->
+  </div>
 </div>
-
-<script src="js/productScript.js"></script>
-</body>
 
 <footer id="footer">
-<div class="footer-title">Kontakt</div>
-<div class="footer-icons">
-  <a href="mailto:jan1.ziolo@student.uj.edu.pl"><i class="fas fa-envelope"></i></a>
-  <a href="https://www.facebook.com/profile.php?id=100010319195205" target="_blank"><i class="fab fa-facebook"></i></a>
-  <a href="https://www.instagram.com/janeczek_ziolo/" target="_blank"><i class="fab fa-instagram"></i></a>
-  <a href="https://github.com/Ziol3k" target="_blank"><i class="fab fa-github"></i></a>
-</div>
-<p>&copy; 2023 Jan Zioło</p>
+  <div class="footer-title">Kontakt</div>
+  <div class="footer-icons">
+    <a href="mailto:jan1.ziolo@student.uj.edu.pl"><i class="fas fa-envelope"></i></a>
+    <a href="https://www.facebook.com/profile.php?id=100010319195205" target="_blank"><i class="fab fa-facebook"></i></a>
+    <a href="https://www.instagram.com/janeczek_ziolo/" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://github.com/Ziol3k" target="_blank"><i class="fab fa-github"></i></a>
+  </div>
+  <p>&copy; 2023 Jan Zioło</p>
 </footer>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
-
+<script src="js/script.js"></script>
+<script src="js/profil.js"></script>
 <script src="js/stanZalogowania.js"></script>
+<script defer src="js/logowanie_rejestracja.js"></script>
+</body>
 </html>

@@ -48,6 +48,7 @@ function displayProducts(productsToDisplay) {
 
 
 document.addEventListener('DOMContentLoaded', () => {
+  updateUIBasedOnLogin();
   displayProducts(products);
 
   const categoryLinks = document.querySelectorAll('.category-link');

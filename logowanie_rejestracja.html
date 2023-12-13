@@ -21,8 +21,6 @@
 <nav>
   <ul>
     <li><a href="dodaj_ogloszenie.html">Dodaj ogłoszenie</a></li>
-    <li><a href="koszyk.html">Koszyk</a></li>
-    <li><a href="logowanie_rejestracja.html">Logowanie/Rejestracja</a></li>
   </ul>
   <div class="search-bar">
     <label>
@@ -40,7 +38,7 @@
 <!-- Formularz logowania -->
 <div class="form-container">
   <div class="form-background left-background">
-    <form class="login-form" action="#" method="post">
+    <form class="login-form" method="post">
       <h2>Logowanie</h2>
       <label for="login">Login:</label>
       <input type="text" id="login" name="login" required>
@@ -52,25 +50,44 @@
 
   <!-- Formularz rejestracji -->
   <div class="form-background right-background">
-    <form class="register-form" action="#" method="post">
+    <form class="register-form" method="post">
       <h2>Rejestracja</h2>
       <label for="email">Adres email:</label>
       <input type="email" id="email" name="email" required>
+
       <label for="username">Login:</label>
       <input type="text" id="username" name="username" required>
+
       <label for="firstName">Imię:</label>
       <input type="text" id="firstName" name="firstName" required>
+
       <label for="lastName">Nazwisko:</label>
       <input type="text" id="lastName" name="lastName" required>
-      <label for="password">Hasło:</label>
-      <input type="password" id="password" name="password" required>
+
+      <label for="registerPassword">Hasło:</label>
+      <input type="password" id="registerPassword" name="password" required>
+
       <label for="confirmPassword">Powtórz hasło:</label>
       <input type="password" id="confirmPassword" name="confirmPassword" required>
+
       <button type="submit">Zarejestruj</button>
     </form>
   </div>
 </div>
 
-<script defer src="js/script.js"></script>
+<script defer src="js/logowanie_rejestracja.js"></script>
 </body>
+<footer id="footer">
+<div class="footer-title">Kontakt</div>
+<div class="footer-icons">
+  <a href="mailto:jan1.ziolo@student.uj.edu.pl"><i class="fas fa-envelope"></i></a>
+  <a href="https://www.facebook.com/profile.php?id=100010319195205" target="_blank"><i class="fab fa-facebook"></i></a>
+  <a href="https://www.instagram.com/janeczek_ziolo/" target="_blank"><i class="fab fa-instagram"></i></a>
+  <a href="https://github.com/Ziol3k" target="_blank"><i class="fab fa-github"></i></a>
+</div>
+<p>&copy; 2023 Jan Zioło</p>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+
+<script src="js/stanZalogowania.js"></script>
 </html>
