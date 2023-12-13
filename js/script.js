@@ -1,19 +1,70 @@
-// script.js
+// Początkowa lista produktów
+const initialProducts = [
+  { id: 1, title: "Czerwona koszulka", description: "Opis produktu 1", category: "Koszulki", color: "Czerwony", size: "L", material: "Bawełna", price: 20.00, imageName: "koszulka.jpg" },
+  { id: 2, title: "Zielona kurtka puchowa", description: "Opis produktu 2", category: "Kurtki", color: "Zielony" , size: "M", material: "Bawełna", price: 30.00, imageName: "kurtka.jpg"  },
+  { id: 3, title: "Czarne spodnie", description: "Opis produktu 3", category: "Spodnie", color: "Czarny", size: "S", material: "Jeans", price: 70.00, imageName: "spodnie.jpg"   },
+  { id: 4, title: "Biała koszula", description: "Opis produktu 4", category: "Koszule", color: "Biały", size: "XL", material: "Bawełna", price: 50.00, imageName: "koszula.jpg"   },
+  { id: 5, title: "Zielona Bluza", description: "Opis produktu 4", category: "Bluzy", color: "Zielony", size: "XL", material: "Bawełna", price: 90.00, imageName: "Bluza.jpg"   },
+  // Dodaj więcej produktów z różnymi kategoriami
+];
 
-// Funkcja wyświetlająca komunikat po dodaniu ogłoszenia
-function showConfirmation() {
-  // Wyświetlenie komunikatu w oknie dialogowym
-  alert('Ogłoszenie zostało dodane!!!');
+if (!localStorage.getItem('products')) {
+  localStorage.setItem('products', JSON.stringify(initialProducts));
+}
+
+products = JSON.parse(localStorage.getItem('products'));
+displayProducts(products);
+function filterProducts(category) {
+  const filteredProducts = products.filter(product => product.category === category);
+  displayProducts(filteredProducts);
+}
+
+function displayProducts(productsToDisplay) {
+  const productsContainer = document.querySelector('.products');
+  productsContainer.innerHTML = '';
+
+  productsToDisplay.forEach(product => {
+    const productLink = document.createElement('a');
+    productLink.href = `product.html?id=${product.id}`;
+    productLink.className = 'product';
+    productLink.style.textDecoration = 'none';
+    productLink.style.color = 'inherit';
+    productLink.style.display = 'block'; // ważne, aby link był blokowy
+    productLink.style.border = '1px solid #ccc';
+    productLink.style.padding = '10px';
+    productLink.style.marginBottom = '20px';
+
+    productLink.innerHTML = `
+      <img src="img/${product.imageName}" alt="${product.title}" style="width:200px; height:200px;">
+      <h3>${product.title}</h3>
+      <p>Kategoria: ${product.category}</p>
+      <p>Cena: ${product.price} $</p>
+    `;
+
+    productsContainer.appendChild(productLink);
+  });
 }
 
 
-document.addEventListener("DOMContentLoaded", function () {
-  const submitBtn = document.getElementById("submitBtn");
 
-  submitBtn.addEventListener("click", function () {
-    // Tutaj możesz dodać kod obsługi formularza, np. wysłanie danych do serwera
+document.addEventListener('DOMContentLoaded', () => {
+  displayProducts(products);
 
-    // Po zatwierdzeniu, przekieruj użytkownika do produkt1.html
-    window.location.href = "produkt1.html";
+  const categoryLinks = document.querySelectorAll('.category-link');
+  categoryLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const category = e.target.dataset.category;
+      filterProducts(category);
+    });
   });
+
+  const clearBtn = document.getElementById('clearLocalStorageBtn');
+  if (clearBtn) {
+    clearBtn.addEventListener('click', () => {
+      localStorage.clear();
+      alert("Dane w LocalStorage zostały wyczyszczone.");
+      location.reload();
+    });
+  }
 });

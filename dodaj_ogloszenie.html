@@ -36,7 +36,7 @@
 <!-- Formularz dodawania ogłoszenia -->
 <section class="add-ad-form">
   <h2>Dodaj ogłoszenie</h2>
-  <form action="submit_ad.php" method="post" enctype="multipart/form-data">
+  <form id="formularzDodawania" action="php/upload.php" method="post" enctype="multipart/form-data">
     <label for="title">Tytuł:</label>
     <input type="text" id="title" name="title" required>
 
@@ -91,16 +91,13 @@
 
     <button type="submit" id="submitBtn" onclick="showConfirmation()">Dodaj ogłoszenie</button>
   </form>
-
-  <!-- Komunikat po dodaniu ogłoszenia -->
-  <div id="confirmationMessage" style="display: none; margin-top: 20px;">
-    <p>Ogłoszenie zostało dodane!!!</p>
-    <button onclick="redirectToProduct()">Zatwierdź</button>
+  <div id="confirmationMessage" style="display: none;">
+    Produkt został dodany!
   </div>
 </section>
 
 <!-- Ładowanie pliku script.js -->
-<script defer src="js/script.js"></script>
+<script defer src="js/dodaj_ogloszenie.js"></script>
 
 </body>
 </html>
