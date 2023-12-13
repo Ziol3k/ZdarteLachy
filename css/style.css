@@ -227,14 +227,6 @@ form button:hover {
 
 
 
-.profile-link {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  color: inherit;
-  margin-right: 10px; /* Odstęp między "Mój Profil" a "Wyloguj" */
-}
-
 
 
 /* Stylizacja formularza dodawania ogłoszenia */
