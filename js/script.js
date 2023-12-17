@@ -4,7 +4,7 @@ const initialProducts = [
   { id: 2, title: "Zielona kurtka puchowa", description: "Opis produktu 2", category: "Kurtki", color: "Zielony" , size: "M", material: "Bawełna", price: 30.00, imageName: "kurtka.jpg"  },
   { id: 3, title: "Czarne spodnie", description: "Opis produktu 3", category: "Spodnie", color: "Czarny", size: "S", material: "Jeans", price: 70.00, imageName: "spodnie.jpg"   },
   { id: 4, title: "Biała koszula", description: "Opis produktu 4", category: "Koszule", color: "Biały", size: "XL", material: "Bawełna", price: 50.00, imageName: "koszula.jpg"   },
-  { id: 5, title: "Zielona Bluza", description: "Opis produktu 4", category: "Bluzy", color: "Zielony", size: "XL", material: "Bawełna", price: 90.00, imageName: "Bluza.jpg"   },
+  { id: 5, title: "Czarna Bluza", description: "Opis produktu 4", category: "Bluzy", color: "Zielony", size: "XL", material: "Bawełna", price: 90.00, imageName: "Bluza.jpg"   },
   // Dodaj więcej produktów z różnymi kategoriami
 ];
 
