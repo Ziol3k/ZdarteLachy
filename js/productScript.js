@@ -1,3 +1,5 @@
+// js/productScript.js
+
 document.addEventListener('DOMContentLoaded', () => {
   const urlParams = new URLSearchParams(window.location.search);
   const productId = urlParams.get('id');
@@ -15,15 +17,29 @@ function displayProductDetails(product) {
   }
 
   const productContainer = document.getElementById('product-container');
-
   productContainer.innerHTML = `
+    <div class="product-details-container">
+      <img src="img/${product.imageName}" alt="${product.title}" class="product-image">
+      <div class="product-details">
         <h2>${product.title}</h2>
-        <img src="img/${product.imageName}" alt="${product.title}" class="product-image">
-        <p>${product.description}</p>
         <p>Kategoria: ${product.category}</p>
-        <p>Cena: ${product.price} $</p>
         <p>Materiał: ${product.material}</p>
         <p>Kolor: ${product.color}</p>
         <p>Rozmiar: ${product.size}</p>
-    `;
+        <p>${product.description}</p>
+        <p>Cena: ${product.price} $</p>
+        <button class="add-to-cart-btn" onclick="addToCart(${product.id})">Dodaj do koszyka</button>
+      </div>
+    </div>
+  `;
+}
+
+function addToCart(productId) {
+  // Tutaj dodaj logikę dodawania produktu o określonym ID do koszyka
+  // Możesz użyć localStorage lub innego mechanizmu do przechowywania danych koszyka
+  // Przykładowa implementacja:
+  const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+  cartItems.push(productId);
+  localStorage.setItem('cart', JSON.stringify(cartItems));
+  alert('Dodano do koszyka!');
 }

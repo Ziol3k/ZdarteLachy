@@ -1,0 +1,49 @@
+/* css/productStyles.css */
+
+#product-container {
+    display: flex;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#product-container img {
+    width: 400px; /* Ustaw szerokość na pożądaną wartość */
+    height: 400px; /* Ustaw wysokość na pożądaną wartość */
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.product-details {
+    display: flex;
+    flex-direction: column;
+    max-width: 50%;
+    margin-left: 20px;
+}
+
+.product-details h2 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.product-details p {
+    margin-bottom: 10px;
+}
+
+/* Dodajemy style dla przycisku dodawania do koszyka */
+.add-to-cart-btn {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.add-to-cart-btn:hover {
+    background-color: #45a049;
+}
