@@ -46,7 +46,16 @@ function displayCartItems() {
         }
     }).join('');
 
-    cartContainer.innerHTML = cartContentHTML;
+    // Oblicz łączną cenę
+    const totalPrice = cartItems.reduce((total, productId) => {
+        const product = products.find(p => p.id === parseInt(productId));
+        return total + (product ? product.price : 0);
+    }, 0);
+
+    // Wyświetl łączną cenę
+    const totalPriceHTML = `<p>Łączna cena: ${totalPrice.toFixed(2)} $</p>`;
+
+    cartContainer.innerHTML = totalPriceHTML + cartContentHTML;
 }
 
 function removeFromCart(productId) {
