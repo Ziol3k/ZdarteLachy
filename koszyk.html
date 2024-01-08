@@ -20,17 +20,21 @@
 
 <nav>
   <ul>
-    <li><a href="dodaj_ogloszenie.html">Dodaj ogłoszenie</a></li>
+    <li id="addLoggedOut"><a href="dodaj_ogloszenie.html">Dodaj ogłoszenie</a></li>
+    <li id="addLoggedIn"><a href="logowanie_rejestracja.html">Dodaj ogłoszenie</a></li>
   </ul>
-  <div class="search-bar">
-    <label>
-      <input type="text" placeholder="Szukaj...">
-    </label>
-    <button type="button">Szukaj</button>
-  </div>
   <ul>
     <li><a href="koszyk.html">Koszyk</a></li>
-    <li><a href="logowanie_rejestracja.html">Logowanie/Rejestracja</a></li>
+    <ul>
+      <li id="loginRegister"><a href="logowanie_rejestracja.html">Logowanie/Rejestracja</a></li>
+      <!-- Ukryty domyślnie kontener Mój Profil i Wyloguj -->
+      <li id="myProfile" style="display: none;">
+        <a href="profil.html" class="profile-link">Mój Profi</a>
+        <a href="#" id="logoutButton" class="navbar-button">Wyloguj</a>
+      </li>
+
+    </ul>
+
   </ul>
 </nav>
 

@@ -34,6 +34,15 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-bottom: 2px solid #ccc; /* Add a border */
+  -moz-border-radius-bottomleft: 10px; /* Rounded corners */
+  -moz-border-radius-bottomright: 10px; /* Rounded corners */
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5); /* Shadow effect */
+
+
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 nav ul {
@@ -128,13 +137,18 @@ nav a:hover {
 }
 
 .sidebar {
-  width: 15%;
+  width: 13%;
   background-color: #333;
-  color: #fff;
+  color: #ffffff;
   padding: 20px;
   position: relative;
   height: unset;
+  border: 2px solid #ccc; /* Add a border */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5); /* Shadow effect */
+  margin: 10px;
 }
+
 
 .sidebar ul {
   list-style: none;
