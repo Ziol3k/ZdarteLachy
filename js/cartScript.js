@@ -52,10 +52,19 @@ function displayCartItems() {
         return total + (product ? product.price : 0);
     }, 0);
 
-    // Wyświetl łączną cenę
+    // Wyświetl łączną cenę i przycisk "Przejdź dalej"
     const totalPriceHTML = `<p>Łączna cena: ${totalPrice.toFixed(2)} $</p>`;
+    const proceedToCheckoutBtn = document.getElementById('proceedToCheckoutBtn');
 
-    cartContainer.innerHTML = totalPriceHTML + cartContentHTML;
+    proceedToCheckoutBtn.innerHTML = totalPriceHTML + 'Przejdź dalej';
+
+    proceedToCheckoutBtn.addEventListener('click', () => {
+        // Przekieruj na stronę podsumowania
+        window.location.href = 'podsumowanie.html';
+    });
+
+    // Wyświetl zawartość koszyka
+    cartContainer.innerHTML = cartContentHTML;
 }
 
 function removeFromCart(productId) {
@@ -74,4 +83,3 @@ function removeFromCart(productId) {
     // Ponownie wyświetl zawartość koszyka
     displayCartItems();
 }
-
