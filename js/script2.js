@@ -11,7 +11,6 @@ function displayProducts(productsToDisplay) {
 
     productsToDisplay.filter(v => v.id>5).forEach(product => {
         const productLink = document.createElement('a');
-        const productDelete = document
         productLink.href = `product.html?id=${product.id}`;
         productLink.className = 'product';
         productLink.style.textDecoration = 'none';
@@ -22,18 +21,24 @@ function displayProducts(productsToDisplay) {
         productLink.style.marginBottom = '20px';
 
         productLink.innerHTML = `
-      
       <img src="img/${product.imageName}" alt="${product.title}" style="width:200px; height:200px;">
       <h3>${product.title}</h3>
       <p>Kategoria: ${product.category}</p>
       <p>Cena: ${product.price} $</p>
-      <button type="deleteProduct">X</button>
+      <button onclick = "deleteProductByID(${product.id}, event)">Usuń</button>
     `;
 
         productsContainer.appendChild(productLink);
     });
 }
 
+function deleteProductByID(productID){
+    event.preventDefault();
+    products = JSON.parse(localStorage.getItem('products'));
+    products = products.filter(x => x.id!=productID);
+    localStorage.setItem('products', JSON.stringify(products));
+    location.reload();
+}
 
 
 document.addEventListener('DOMContentLoaded', () => {
