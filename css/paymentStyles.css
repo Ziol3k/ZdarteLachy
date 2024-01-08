@@ -1,0 +1,37 @@
+/* Zaktualizowany CSS */
+
+/* Styl dla sekcji podsumowania i formularza */
+.summary-container {
+    margin: 20px;
+    display: flex;
+    justify-content: space-between; /* Rozstawienie elementów na krańcach kontenera */
+}
+
+/* Styl dla lewej części podsumowania (koszyka) */
+.summary-left {
+    width: 45%; /* Dostosuj szerokość lewej części podsumowania */
+}
+
+/* Styl dla prawej części podsumowania (formularza płatności) */
+.summary-right {
+    width: 45%; /* Dostosuj szerokość prawej części podsumowania */
+}
+
+/* Styl dla listy produktów w koszyku */
+#cartSummary {
+    list-style: none;
+    padding: 0;
+}
+
+/* Styl dla elementów produktu w koszyku */
+.cart-summary-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+/* Styl dla łącznej ceny w koszyku */
+.cart-total {
+    margin-top: 20px;
+    font-weight: bold;
+}

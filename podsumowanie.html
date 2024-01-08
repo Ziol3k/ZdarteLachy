@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <title>Zdarte Łachy - Podsumowanie płatności</title>
+    <link rel="stylesheet" href="css/paymentStyles.css"> <!-- Dodaj nowy plik ze stylami, np. paymentStyles.css -->
 </head>
 <body>
 
@@ -19,41 +20,47 @@
 
 <div class="container">
     <section class="summary-container">
-        <!-- Wstaw tutaj kod do wyświetlania podsumowania koszyka i formularza płatności -->
+        <div class="summary-left">
+            <h2>Podsumowanie koszyka</h2>
+            <!-- Tutaj możesz wyświetlić szczegóły koszyka, np. lista produktów, łączna cena itp. -->
+            <!-- Zakładałem, że każdy produkt ma nazwę, cenę i ilość -->
+            <ul id="cartSummary">
+                <!-- Lista produktów zostanie wygenerowana dynamicznie przez skrypt -->
+            </ul>
+        </div>
 
-        <h2>Podsumowanie koszyka</h2>
-        <!-- Tutaj możesz wyświetlić szczegóły koszyka, np. lista produktów, łączna cena itp. -->
+        <div class="summary-right">
+            <h2>Formularz płatności</h2>
+            <form id="paymentForm">
+                <label for="firstName">Imię:</label>
+                <input type="text" id="firstName" name="firstName" required>
 
-        <h2>Formularz płatności</h2>
-        <form id="paymentForm">
-            <label for="firstName">Imię:</label>
-            <input type="text" id="firstName" name="firstName" required>
+                <label for="lastName">Nazwisko:</label>
+                <input type="text" id="lastName" name="lastName" required>
 
-            <label for="lastName">Nazwisko:</label>
-            <input type="text" id="lastName" name="lastName" required>
+                <label for="address">Adres:</label>
+                <input type="text" id="address" name="address" required>
 
-            <label for="address">Adres:</label>
-            <input type="text" id="address" name="address" required>
+                <label for="postalCode">Kod pocztowy:</label>
+                <input type="text" id="postalCode" name="postalCode" required>
 
-            <label for="postalCode">Kod pocztowy:</label>
-            <input type="text" id="postalCode" name="postalCode" required>
+                <label for="city">Miejscowość:</label>
+                <input type="text" id="city" name="city" required>
 
-            <label for="city">Miejscowość:</label>
-            <input type="text" id="city" name="city" required>
+                <label for="phoneNumber">Numer telefonu:</label>
+                <input type="tel" id="phoneNumber" name="phoneNumber" required>
 
-            <label for="phoneNumber">Numer telefonu:</label>
-            <input type="tel" id="phoneNumber" name="phoneNumber" required>
+                <label for="paymentMethod">Wybór płatności:</label>
+                <select id="paymentMethod" name="paymentMethod" required>
+                    <option value="card">Karta kredytowa</option>
+                    <option value="bankTransfer">Przelew bankowy</option>
+                </select>
 
-            <label for="paymentMethod">Wybór płatności:</label>
-            <select id="paymentMethod" name="paymentMethod" required>
-                <option value="card">Karta kredytowa</option>
-                <option value="bankTransfer">Przelew bankowy</option>
-            </select>
+                <!-- Tutaj możesz dodać więcej pól w zależności od potrzeb -->
 
-            <!-- Tutaj możesz dodać więcej pól w zależności od potrzeb -->
-
-            <button type="submit">Zatwierdź płatność</button>
-        </form>
+                <button type="submit">Zatwierdź płatność</button>
+            </form>
+        </div>
     </section>
 </div>
 
@@ -70,5 +77,5 @@
 </footer>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
 <script src="js/stanZalogowania.js"></script>
-<script src="js/paymentScript.js"></script> <!-- Dodaj nowy plik skryptu, np. paymentScript.js -->
+<script src="js/paymentScript.js"></script>
 </html>
