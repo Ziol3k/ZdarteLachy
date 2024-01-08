@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/cartStyles.css">
   <title>Zdarte Łachy - Koszyk</title>
 </head>
 <body>
@@ -34,18 +35,26 @@
   </ul>
 </nav>
 
+<div class="container">
+  <!-- Dodaj sekcję na zawartość koszyka -->
+  <section class="cart-container" id="cart-container">
+    <!-- Tutaj będzie zawartość koszyka, dynamicznie generowana przez JavaScript -->
+  </section>
+</div>
+
 </body>
 <footer id="footer">
-<div class="footer-title">Kontakt</div>
-<div class="footer-icons">
-  <a href="mailto:jan1.ziolo@student.uj.edu.pl"><i class="fas fa-envelope"></i></a>
-  <a href="https://www.facebook.com/profile.php?id=100010319195205" target="_blank"><i class="fab fa-facebook"></i></a>
-  <a href="https://www.instagram.com/janeczek_ziolo/" target="_blank"><i class="fab fa-instagram"></i></a>
-  <a href="https://github.com/Ziol3k" target="_blank"><i class="fab fa-github"></i></a>
-</div>
-<p>&copy; 2023 Jan Zioło</p>
+  <div class="footer-title">Kontakt</div>
+  <div class="footer-icons">
+    <a href="mailto:jan1.ziolo@student.uj.edu.pl"><i class="fas fa-envelope"></i></a>
+    <a href="https://www.facebook.com/profile.php?id=100010319195205" target="_blank"><i class="fab fa-facebook"></i></a>
+    <a href="https://www.instagram.com/janeczek_ziolo/" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://github.com/Ziol3k" target="_blank"><i class="fab fa-github"></i></a>
+  </div>
+  <p>&copy; 2023 Jan Zioło</p>
 </footer>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
 
 <script src="js/stanZalogowania.js"></script>
+<script src="js/cartScript.js"></script> <!-- Nowy plik skryptu koszyka -->
 </html>

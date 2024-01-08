@@ -35,9 +35,6 @@ function displayProductDetails(product) {
 }
 
 function addToCart(productId) {
-  // Tutaj dodaj logikę dodawania produktu o określonym ID do koszyka
-  // Możesz użyć localStorage lub innego mechanizmu do przechowywania danych koszyka
-  // Przykładowa implementacja:
   const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
   cartItems.push(productId);
   localStorage.setItem('cart', JSON.stringify(cartItems));
