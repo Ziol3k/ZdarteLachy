@@ -20,7 +20,7 @@
 .product-details {
     display: flex;
     flex-direction: column;
-    max-width: 50%;
+    max-width: 100%;
     margin-left: 20px;
 }
 
@@ -50,6 +50,8 @@
 
 .product-reviews {
     margin-top: 20px;
+    margin-left: 35%; /* Dodaj margines lewy */
+    margin-right: 20%; /* Dodaj margines prawy */
 }
 
 #reviews-list {
