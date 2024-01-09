@@ -39,6 +39,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Wyświetlanie produktów wystawionych przez użytkownika
   displayProductsForUser(loggedInUser.username);
+
+
+  displayUserPurchases()
 });
 
 // Funkcja do wyświetlania produktów użytkownika
@@ -64,3 +67,35 @@ function displayProductsForUser(username) {
     listedItemsContainer.appendChild(productDiv);
   });
 }
+
+
+function displayUserPurchases() {
+  const purchasesContainer = document.getElementById('YourOrders');
+  const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+  const purchases = JSON.parse(localStorage.getItem('purchases')) || [];
+  const products = JSON.parse(localStorage.getItem('products')) || [];
+
+  purchasesContainer.innerHTML = '';
+  if (purchases.length === 0) {
+    purchasesContainer.innerHTML = '<p>Brak zakupów.</p>';
+    return;
+  }
+
+  purchases.forEach(purchase => {
+    const product = products.find(p => p.id === purchase.itemId);
+    if (!product) {
+      return;
+    }
+
+    const purchaseDiv = document.createElement('div');
+    purchaseDiv.className = 'product';
+    purchaseDiv.innerHTML = `
+      <img src="img/${product.imageName}" alt="${product.title}" style="width: 100px; height: 100px;">
+      <h3>${purchase.itemName}</h3>
+      <p>Cena: ${purchase.price} $</p>
+      <p>Data zakupu: ${purchase.purchaseDate}</p>
+    `;
+    purchasesContainer.appendChild(purchaseDiv);
+  });
+}
+
