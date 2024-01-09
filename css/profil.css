@@ -1,22 +1,32 @@
 /* Zapisz ten kod w pliku profil.css */
 
-
-.profile-container {
-  background-color: #fff;
+.profile-table-container {
+  display: flex;
+  justify-content: center;
   padding: 20px;
-  border-radius: 10px;
-  margin: 20px auto;
-  max-width: 800px;
 }
 
-#profileDetails {
-  margin-bottom: 20px;
+.profile-table {
+  border-collapse: collapse;
+  width: 60%; /* Dostosuj szerokość do swoich potrzeb */
+  background-color: #f2f2f2; /* Kolor tła tabeli */
+  border: 1px solid #ddd; /* Krawędź tabeli */
 }
 
-#profileDetails p {
-  margin: 5px 0;
-  font-size: 16px;
+.profile-table th, .profile-table td {
+  text-align: left;
+  padding: 8px;
 }
+
+.profile-table th {
+  background-color: #585e58; /* Kolor tła nagłówka */
+  color: white; /* Kolor tekstu nagłówka */
+}
+
+/* Style dla wierszy tabeli */
+.profile-table tr:nth-child(even) {background-color: #f2f2f2;}
+.profile-table tr:nth-child(odd) {background-color: #fff;}
+
 
 .products-container {
   background-color: #f4f4f4;
@@ -34,20 +44,6 @@
   flex-wrap: wrap;
 }
 
-footer {
-  background-color: #333;
-  color: #fff;
-  text-align: center;
-  padding: 10px;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-}
-
-.footer-icons a {
-  color: #fff;
-  margin: 0 5px;
-}
 
 
 
@@ -90,12 +86,5 @@ footer {
   border-top: none;
 }
 
-
-.ListedItems {
-  display: flex;
-  flex-wrap: wrap; /* Zapewnia przenoszenie elementów do nowej linii, gdy brakuje miejsca */
-  justify-content: space-around; /* Opcjonalnie, dla równomiernego rozłożenia elementów */
-  gap: 10px; /* Opcjonalnie, dla dodania odstępów między produktami */
-}
 
 /* Dodaj inne style według potrzeb */

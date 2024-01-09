@@ -60,3 +60,46 @@ function displayCartSummary() {
     totalElement.textContent = `Łączna cena: ${totalPrice.toFixed(2)} $`;
     cartSummaryContainer.appendChild(totalElement);
 }
+
+
+function handlePaymentSubmission(event) {
+  event.preventDefault();
+
+  // Tutaj logika płatności...
+
+  // Po zakończeniu płatności zapisz zakupy
+  savePurchases();
+
+  clearCart();
+  alert('Płatność została zatwierdzona pomyślnie!');
+}
+
+function savePurchases() {
+  // Sprawdź, czy użytkownik jest zalogowany
+  const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+  if (!loggedInUser) {
+    // Jeśli użytkownik nie jest zalogowany, nie kontynuuj dalej
+    return;
+  }
+
+  const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+  const products = JSON.parse(localStorage.getItem('products')) || [];
+  const purchases = JSON.parse(localStorage.getItem('purchases')) || [];
+
+  cartItems.forEach(productId => {
+    const product = products.find(p => p.id === parseInt(productId));
+    if (product) {
+      purchases.push({
+        userId: loggedInUser.username, // Unikalny identyfikator użytkownika
+        itemId: product.id,
+        itemName: product.title,
+        price: product.price,
+        purchaseDate: new Date().toISOString().slice(0, 10) // Data zakupu
+      });
+    }
+  });
+
+  localStorage.setItem('purchases', JSON.stringify(purchases));
+}
+
+

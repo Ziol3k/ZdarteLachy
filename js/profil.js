@@ -9,7 +9,7 @@ function openTab(evt, tabName) {
   for (i = 0; i < tablinks.length; i++) {
     tablinks[i].className = tablinks[i].className.replace(" active", "");
   }
-  document.getElementById(tabName).style.display = "block";
+  document.getElementById(tabName).style.display = "flex";
   evt.currentTarget.className += " active";
 }
 
@@ -20,12 +20,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Wyświetl szczegóły profilu
   if (loggedInUser) {
-    profileDetails.innerHTML = `
-      <p>Imię: ${loggedInUser.firstName}</p>
-      <p>Nazwisko: ${loggedInUser.lastName}</p>
-      <p>Email: ${loggedInUser.email}</p>
-      <p>Login: ${loggedInUser.username}</p>
+    const table = document.createElement('table');
+    table.className = 'profile-table';
+    table.innerHTML = `
+      <tr><th>Imię</th><td>${loggedInUser.firstName}</td></tr>
+      <tr><th>Nazwisko</th><td>${loggedInUser.lastName}</td></tr>
+      <tr><th>Email</th><td>${loggedInUser.email}</td></tr>
+      <tr><th>Login</th><td>${loggedInUser.username}</td></tr>
+      <!-- Dodaj więcej wierszy zgodnie z potrzebą -->
     `;
+    profileDetails.appendChild(table);
   } else {
     profileDetails.innerHTML = '<p>Nie znaleziono danych użytkownika.</p>';
   }
@@ -35,6 +39,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Wyświetlanie produktów wystawionych przez użytkownika
   displayProductsForUser(loggedInUser.username);
+
+
+  displayUserPurchases()
 });
 
 // Funkcja do wyświetlania produktów użytkownika
@@ -60,3 +67,35 @@ function displayProductsForUser(username) {
     listedItemsContainer.appendChild(productDiv);
   });
 }
+
+
+function displayUserPurchases() {
+  const purchasesContainer = document.getElementById('YourOrders');
+  const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+  const purchases = JSON.parse(localStorage.getItem('purchases')) || [];
+  const products = JSON.parse(localStorage.getItem('products')) || [];
+
+  purchasesContainer.innerHTML = '';
+  if (purchases.length === 0) {
+    purchasesContainer.innerHTML = '<p>Brak zakupów.</p>';
+    return;
+  }
+
+  purchases.forEach(purchase => {
+    const product = products.find(p => p.id === purchase.itemId);
+    if (!product) {
+      return;
+    }
+
+    const purchaseDiv = document.createElement('div');
+    purchaseDiv.className = 'product';
+    purchaseDiv.innerHTML = `
+      <img src="img/${product.imageName}" alt="${product.title}" style="width: 100px; height: 100px;">
+      <h3>${purchase.itemName}</h3>
+      <p>Cena: ${purchase.price} $</p>
+      <p>Data zakupu: ${purchase.purchaseDate}</p>
+    `;
+    purchasesContainer.appendChild(purchaseDiv);
+  });
+}
+
