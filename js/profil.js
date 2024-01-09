@@ -108,16 +108,16 @@ function editUserProfile() {
   editForm.innerHTML = `
     <label for="firstName">Imię:</label>
     <input type="text" id="firstName" value="${loggedInUser.firstName}"><br>
-    
+
     <label for="lastName">Nazwisko:</label>
     <input type="text" id="lastName" value="${loggedInUser.lastName}"><br>
-    
+
     <label for="email">Email:</label>
     <input type="email" id="email" value="${loggedInUser.email}"><br>
-    
+
     <label for="username">Login:</label>
     <input type="text" id="username" value="${loggedInUser.username}"><br>
-    
+
     <button type="button" onclick="saveUserProfileChanges()">Zapisz</button>
   `;
 
@@ -163,4 +163,12 @@ function updateProductsOwner(oldUsername, newUsername) {
 
   // Save the updated products back to localStorage
   localStorage.setItem('products', JSON.stringify(products));
+}
+
+function deleteProductByID(productID){
+  event.preventDefault();
+  products = JSON.parse(localStorage.getItem('products'));
+  products = products.filter(x => x.id!=productID);
+  localStorage.setItem('products', JSON.stringify(products));
+  location.reload();
 }
