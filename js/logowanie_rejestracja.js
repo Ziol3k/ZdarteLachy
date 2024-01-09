@@ -2,9 +2,15 @@ document.addEventListener('DOMContentLoaded', function() {
   const loginForm = document.querySelector('.login-form');
   const registerForm = document.querySelector('.register-form');
 
-  loginForm.addEventListener('submit', handleLogin);
-  registerForm.addEventListener('submit', handleRegister);
+  if(loginForm) {
+    loginForm.addEventListener('submit', handleLogin);
+  }
+
+  if(registerForm) {
+    registerForm.addEventListener('submit', handleRegister);
+  }
 });
+
 
 function handleLogin(event) {
   event.preventDefault();
