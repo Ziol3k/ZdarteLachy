@@ -43,6 +43,7 @@
   </ul>
 </nav>
 
+
 <div class="container">
   <!-- Boczne menu -->
   <aside class="sidebar">
@@ -67,6 +68,17 @@
     </section>
   </section>
 </div>
+<section class="product-reviews">
+  <h2>Opinie</h2>
+  <ul id="reviews-list"></ul>
+
+  <div id="add-review-form">
+    <h3>Dodaj opinię</h3>
+    <label for="review-text">Twoja opinia:</label>
+    <textarea id="review-text" rows="4" placeholder="Napisz swoją opinię"></textarea>
+    <button onclick="addReview()">Dodaj opinię</button>
+  </div>
+</section>
 
 <footer id="footer">
   <div class="footer-title">Kontakt</div>
