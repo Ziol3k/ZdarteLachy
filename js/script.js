@@ -69,3 +69,46 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+  updateUIBasedOnLogin();
+  displayProducts(products);
+
+  const categoryLinks = document.querySelectorAll('.category-link');
+  categoryLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const category = e.target.dataset.category;
+      filterProducts(category);
+    });
+  });
+
+  const clearBtn = document.getElementById('clearLocalStorageBtn');
+  if (clearBtn) {
+    clearBtn.addEventListener('click', () => {
+      localStorage.clear();
+      alert("Dane w LocalStorage zostały wyczyszczone.");
+      location.reload();
+    });
+  }
+
+  const searchInput = document.querySelector('.search-bar input');
+  const searchButton = document.querySelector('.search-bar button');
+
+  searchButton.addEventListener('click', () => {
+    const searchValue = searchInput.value.toLowerCase();
+    const matchingProducts = products.filter(product => product.title.toLowerCase().includes(searchValue));
+
+    if (matchingProducts.length > 0) {
+      if (matchingProducts.length === 1) {
+        // Jeśli jest tylko jeden pasujący produkt, przekieruj na jego stronę
+        window.location.href = `product.html?id=${matchingProducts[0].id}`;
+      } else {
+        // Jeśli jest więcej niż jeden pasujący produkt, wyświetl je wszystkie
+        displayProducts(matchingProducts);
+      }
+    } else {
+      alert("Brak pasujących produktów.");
+    }
+  });
+});
