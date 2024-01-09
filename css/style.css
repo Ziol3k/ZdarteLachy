@@ -95,9 +95,10 @@ nav a:hover {
 }
 
 .navbar-button {
-  background-color: transparent;
+  background-color: #555;
   border: none;
   cursor: pointer;
+
 }
 
 #myProfile {
@@ -196,6 +197,7 @@ nav a:hover {
 }
 
 .form-container {
+  width: 50%;
   display: flex;
   justify-content: space-around;
   margin: 20px auto;
