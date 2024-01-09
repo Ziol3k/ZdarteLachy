@@ -139,6 +139,9 @@ function saveUserProfileChanges() {
   if (loggedInUser.username !== newUsername) {
     // Update the username in the user's products
     updateProductsOwner(loggedInUser.username, newUsername);
+
+    // Update the username in the product reviews
+    updateReviewsUsername(loggedInUser.username, newUsername);
   }
 
   loggedInUser.username = newUsername;
@@ -149,6 +152,20 @@ function saveUserProfileChanges() {
   // Reload the page or update the displayed details
   // You may need to modify this part based on your application flow
   location.reload();
+}
+
+function updateReviewsUsername(oldUsername, newUsername) {
+  const reviews = JSON.parse(localStorage.getItem('productReviews')) || [];
+
+  // Update the username in the product reviews
+  reviews.forEach(review => {
+    if (review.user === oldUsername) {
+      review.user = newUsername;
+    }
+  });
+
+  // Save the updated reviews back to localStorage
+  localStorage.setItem('productReviews', JSON.stringify(reviews));
 }
 
 function updateProductsOwner(oldUsername, newUsername) {
