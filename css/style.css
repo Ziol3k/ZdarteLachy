@@ -404,6 +404,7 @@ footer {
   left: 0;
   bottom: 0;
   width: 100%;
+  position: relative;
 }
 
 .footer-title {
@@ -427,104 +428,4 @@ footer {
   width: 100%;
   height: auto;
   border-radius: 8px;
-}
-
-@media screen and (max-width: 768px) {
-  .filler {
-    min-height: 120px;
-  }
-
-  .small_title {
-    display: inline;
-    margin-left: 20px;
-  }
-
-  .bar-title {
-    display: none;
-  }
-
-  .container {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .content {
-    padding: 10px;
-  }
-
-  .main-content {
-    width: 100%;
-  }
-
-  .sidebar {
-    width: 93%;
-    margin-left: 20px;
-  }
-}
-
-
-/* Responsywność */
-@media screen and (max-width: 768px) {
-  .header-image {
-    height: 100px; /* Mniejszy nagłówek na mniejszych ekranach */
-  }
-
-  .search-bar input {
-    width: 200px; /* Mniejsze pole wyszukiwania */
-  }
-
-  .sidebar {
-    width: 100%; /* Sidebar na całą szerokość */
-    order: -1; /* Sidebar na górze */
-  }
-
-  .products {
-    flex-direction: column;
-  }
-
-  .product {
-    width: 100%; /* Produkty na całą szerokość */
-    margin: 10px 0;
-  }
-
-  .form-background {
-    width: 80%; /* Szerzej na małych ekranach */
-  }
-
-  .product-details {
-    flex-direction: column;
-    margin: 0 10px;
-  }
-
-  .product-image, .product-info {
-    width: 100%;
-  }
-
-  .characteristics, .description {
-    padding: 0 10px;
-  }
-
-  .navbar-button, .login-register, .cart {
-    padding: 5px 10px; /* Mniejsze przyciski */
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .header-image {
-    height: 80px;
-  }
-
-  .search-bar input {
-    width: 150px;
-  }
-
-  .form-background {
-    width: 100%; /* Formularze na całą szerokość */
-    padding: 10px;
-  }
-
-  .add-ad-form, .product-container {
-    padding: 10px;
-    max-width: none;
-  }
 }

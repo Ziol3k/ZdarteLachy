@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/profil.css">
   <title>Profil Użytkownika</title>
 </head>
 <body>
@@ -41,18 +42,30 @@
   </ul>
 </nav>
 
-<div class="profile-container">
-  <h1>Profil Użytkownika</h1>
+<div class="tab">
+  <button class="tablinks" onclick="openTab(event, 'YourData')">Twoje dane</button>
+  <button class="tablinks" onclick="openTab(event, 'ListedItems')">Wystawione przedmioty</button>
+  <button class="tablinks" onclick="openTab(event, 'Reviews')">Opinie</button>
+  <button class="tablinks" onclick="openTab(event, 'YourOrders')">Twoje zamówienia</button>
+</div>
+
+<div id="YourData" class="tabcontent">
   <div id="profileDetails">
-    <!-- Tutaj będą wyświetlane szczegóły profilu -->
+    <!-- Tutaj będą wyświetlane szczegóły konta użytkownika -->
   </div>
-  <section class="products-container">
-    <h2>Twoje Produkty</h2>
-    <section class="products">
-      <!-- Tutaj będą dynamicznie dodawane produkty przez JavaScript -->
-    </section>
-  </section>
-  <script src="js/script2.js"></script>
+</div>
+
+<div id="ListedItems" class="tabcontent">
+  <!-- Tutaj będą wyświetlane przedmioty wystawione przez użytkownika -->
+  <div class="products"></div>
+</div>
+
+<div id="Reviews" class="tabcontent">
+  <!-- Tutaj będą wyświetlane opinie o użytkowniku -->
+</div>
+
+<div id="YourOrders" class="tabcontent">
+  <!-- Tutaj będą wyświetlane zamówienia użytkownika -->
 </div>
 
 <footer id="footer">

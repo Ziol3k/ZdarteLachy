@@ -3,6 +3,7 @@ displayProducts(products);
 function filterProducts(category) {
     const filteredProducts = products.filter(product => product.category === category);
     displayProducts(filteredProducts);
+
 }
 
 function displayProducts(productsToDisplay) {

@@ -13,6 +13,7 @@ function addNewAd() {
   }
 
   let products = JSON.parse(localStorage.getItem('products')) || [];
+  const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
 
   // Generowanie unikalnego ID dla nowego produktu
   const newId = products.length > 0 ? Math.max(...products.map(p => p.id)) + 1 : 1;
@@ -26,7 +27,8 @@ function addNewAd() {
     size,
     material,
     price: Number(price),
-    imageName: "default.jpg"
+    imageName: "default.jpg",
+    owner: loggedInUser.username // Dodajemy nazwę użytkownika jako właściciela produktu
   };
 
   products.push(newProduct);
