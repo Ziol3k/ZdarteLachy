@@ -42,32 +42,33 @@
   </ul>
 </nav>
 
-<div class="tab">
-  <button class="tablinks" onclick="openTab(event, 'YourData')">Twoje dane</button>
-  <button class="tablinks" onclick="openTab(event, 'ListedItems')">Wystawione przedmioty</button>
-  <button class="tablinks" onclick="openTab(event, 'Reviews')">Opinie</button>
-  <button class="tablinks" onclick="openTab(event, 'YourOrders')">Twoje zamówienia</button>
-</div>
-
-<div id="YourData" class="tabcontent">
-  <div id="profileDetails">
-    <!-- Tutaj będą wyświetlane szczegóły konta użytkownika -->
+<main>
+  <div class="tab">
+    <button class="tablinks" onclick="openTab(event, 'YourData')">Twoje dane</button>
+    <button class="tablinks" onclick="openTab(event, 'ListedItems')">Wystawione przedmioty</button>
+    <button class="tablinks" onclick="openTab(event, 'Reviews')">Opinie</button>
+    <button class="tablinks" onclick="openTab(event, 'YourOrders')">Twoje zamówienia</button>
   </div>
-</div>
 
-<div id="ListedItems" class="tabcontent">
-  <!-- Tutaj będą wyświetlane przedmioty wystawione przez użytkownika -->
-  <div class="products"></div>
-</div>
+  <div id="YourData" class="tabcontent">
+    <div id="profileDetails">
+      <!-- Tutaj będą wyświetlane szczegóły konta użytkownika -->
+    </div>
+  </div>
 
-<div id="Reviews" class="tabcontent">
-  <!-- Tutaj będą wyświetlane opinie o użytkowniku -->
-</div>
+  <div id="ListedItems" class="tabcontent">
+    <!-- Tutaj będą wyświetlane przedmioty wystawione przez użytkownika -->
+    <div class="products"></div>
+  </div>
 
-<div id="YourOrders" class="tabcontent">
-  <!-- Tutaj będą wyświetlane zamówienia użytkownika -->
-</div>
+  <div id="Reviews" class="tabcontent">
+    <!-- Tutaj będą wyświetlane opinie o użytkowniku -->
+  </div>
 
+  <div id="YourOrders" class="tabcontent">
+    <!-- Tutaj będą wyświetlane zamówienia użytkownika -->
+  </div>
+</main>
 <footer id="footer">
   <div class="footer-title">Kontakt</div>
   <div class="footer-icons">

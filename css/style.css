@@ -1,8 +1,20 @@
 /* style.css */
-body {
+html body {
+  height: 100%;
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
+}
+
+
+body {
+  display: flex;
+  flex-direction: column; /* Ustaw kierunek zawartości na pionowy */
+  min-height: calc(100vh); /* Zakładając, że stopka ma 100px wysokości */
+}
+
+main {
+  flex: 1; /* Ustaw flex-grow na 1 dla głównej treści, co pozwoli jej rozszerzyć się, aby zająć dostępną przestrzeń */
 }
 
 header {
@@ -404,6 +416,7 @@ footer {
   left: 0;
   bottom: 0;
   width: 100%;
+  height: 100px;
   position: relative;
 }
 
