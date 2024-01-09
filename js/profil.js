@@ -98,4 +98,70 @@ function displayUserPurchases() {
     purchasesContainer.appendChild(purchaseDiv);
   });
 }
+function editProfile() {
+  const profileDetails = document.getElementById('profileDetails');
+  const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
 
+  profileDetails.innerHTML = `
+    <form id="editProfileForm">
+      <label for="firstName">Imię:</label>
+      <input type="text" id="firstName" value="${loggedInUser.firstName}" required>
+      
+      <label for="lastName">Nazwisko:</label>
+      <input type="text" id="lastName" value="${loggedInUser.lastName}" required>
+      
+      <label for="email">Email:</label>
+      <input type="email" id="email" value="${loggedInUser.email}" required>
+      
+      <label for="username">Login:</label>
+      <input type="text" id="username" value="${loggedInUser.username}" required>
+      
+      <button type="button" onclick="saveChanges()">Zapisz zmiany</button>
+    </form>
+  `;
+}
+
+// Funkcja do zapisywania zmian w danych użytkownika
+function saveChanges() {
+  const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+  const editProfileForm = document.getElementById('editProfileForm');
+
+  // Pobierz wartości z formularza
+  const firstName = editProfileForm.querySelector('#firstName').value;
+  const lastName = editProfileForm.querySelector('#lastName').value;
+  const email = editProfileForm.querySelector('#email').value;
+  const username = editProfileForm.querySelector('#username').value;
+
+  // Zaktualizuj dane użytkownika
+  loggedInUser.firstName = firstName;
+  loggedInUser.lastName = lastName;
+  loggedInUser.email = email;
+  loggedInUser.username = username;
+
+  // Zapisz zmienione dane w localStorage
+  localStorage.setItem('loggedInUser', JSON.stringify(loggedInUser));
+
+  // Wyświetl ponownie szczegóły profilu po zapisaniu zmian
+  displayUserProfileDetails();
+}
+
+// Funkcja do wyświetlania szczegółów profilu użytkownika po zapisaniu zmian
+function displayUserProfileDetails() {
+  const profileDetails = document.getElementById('profileDetails');
+  const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+
+  // Wyświetl szczegóły profilu
+  if (loggedInUser) {
+    const table = document.createElement('table');
+    table.className = 'profile-table';
+    table.innerHTML = `
+      <tr><th>Imię</th><td>${loggedInUser.firstName}</td></tr>
+      <tr><th>Nazwisko</th><td>${loggedInUser.lastName}</td></tr>
+      <tr><th>Email</th><td>${loggedInUser.email}</td></tr>
+      <tr><th>Login</th><td>${loggedInUser.username}</td></tr>
+      <!-- Dodaj więcej wierszy zgodnie z potrzebą -->
+    `;
+    profileDetails.innerHTML = '';
+    profileDetails.appendChild(table);
+  }
+}
