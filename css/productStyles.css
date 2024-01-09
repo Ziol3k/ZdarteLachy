@@ -52,6 +52,20 @@
     margin-top: 20px;
 }
 
+#reviews-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+#reviews-list li {
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+}
+
+#reviews-list li:last-child {
+    border-bottom: none;
+}
+
 #add-review-form {
     margin-top: 20px;
 }
@@ -59,10 +73,27 @@
 #add-review-form label {
     display: block;
     margin-bottom: 5px;
+    color: #333; /* Kolor etykiety formularza */
 }
 
 #add-review-form textarea {
     width: 100%;
-    padding: 5px;
+    padding: 10px;
     margin-bottom: 10px;
+    border: 1px solid #ddd; /* Dodaj obramowanie dla textarea */
+    border-radius: 5px;
+}
+
+#add-review-form button {
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#add-review-form button:hover {
+    background-color: #2980b9;
 }
