@@ -9,7 +9,7 @@ function openTab(evt, tabName) {
   for (i = 0; i < tablinks.length; i++) {
     tablinks[i].className = tablinks[i].className.replace(" active", "");
   }
-  document.getElementById(tabName).style.display = "block";
+  document.getElementById(tabName).style.display = "flex";
   evt.currentTarget.className += " active";
 }
 
@@ -20,12 +20,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Wyświetl szczegóły profilu
   if (loggedInUser) {
-    profileDetails.innerHTML = `
-      <p>Imię: ${loggedInUser.firstName}</p>
-      <p>Nazwisko: ${loggedInUser.lastName}</p>
-      <p>Email: ${loggedInUser.email}</p>
-      <p>Login: ${loggedInUser.username}</p>
+    const table = document.createElement('table');
+    table.className = 'profile-table';
+    table.innerHTML = `
+      <tr><th>Imię</th><td>${loggedInUser.firstName}</td></tr>
+      <tr><th>Nazwisko</th><td>${loggedInUser.lastName}</td></tr>
+      <tr><th>Email</th><td>${loggedInUser.email}</td></tr>
+      <tr><th>Login</th><td>${loggedInUser.username}</td></tr>
+      <!-- Dodaj więcej wierszy zgodnie z potrzebą -->
     `;
+    profileDetails.appendChild(table);
   } else {
     profileDetails.innerHTML = '<p>Nie znaleziono danych użytkownika.</p>';
   }
