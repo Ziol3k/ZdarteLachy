@@ -98,70 +98,69 @@ function displayUserPurchases() {
     purchasesContainer.appendChild(purchaseDiv);
   });
 }
-function editProfile() {
+
+function editUserProfile() {
   const profileDetails = document.getElementById('profileDetails');
   const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
 
-  profileDetails.innerHTML = `
-    <form id="editProfileForm">
-      <label for="firstName">Imię:</label>
-      <input type="text" id="firstName" value="${loggedInUser.firstName}" required>
-      
-      <label for="lastName">Nazwisko:</label>
-      <input type="text" id="lastName" value="${loggedInUser.lastName}" required>
-      
-      <label for="email">Email:</label>
-      <input type="email" id="email" value="${loggedInUser.email}" required>
-      
-      <label for="username">Login:</label>
-      <input type="text" id="username" value="${loggedInUser.username}" required>
-      
-      <button type="button" onclick="saveChanges()">Zapisz zmiany</button>
-    </form>
+  // Create a form for editing user details
+  const editForm = document.createElement('form');
+  editForm.innerHTML = `
+    <label for="firstName">Imię:</label>
+    <input type="text" id="firstName" value="${loggedInUser.firstName}"><br>
+    
+    <label for="lastName">Nazwisko:</label>
+    <input type="text" id="lastName" value="${loggedInUser.lastName}"><br>
+    
+    <label for="email">Email:</label>
+    <input type="email" id="email" value="${loggedInUser.email}"><br>
+    
+    <label for="username">Login:</label>
+    <input type="text" id="username" value="${loggedInUser.username}"><br>
+    
+    <button type="button" onclick="saveUserProfileChanges()">Zapisz</button>
   `;
+
+  // Replace existing details with the edit form
+  profileDetails.innerHTML = '';
+  profileDetails.appendChild(editForm);
 }
 
-// Funkcja do zapisywania zmian w danych użytkownika
-function saveChanges() {
+function saveUserProfileChanges() {
   const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
-  const editProfileForm = document.getElementById('editProfileForm');
 
-  // Pobierz wartości z formularza
-  const firstName = editProfileForm.querySelector('#firstName').value;
-  const lastName = editProfileForm.querySelector('#lastName').value;
-  const email = editProfileForm.querySelector('#email').value;
-  const username = editProfileForm.querySelector('#username').value;
+  // Update user details based on the form values
+  loggedInUser.firstName = document.getElementById('firstName').value;
+  loggedInUser.lastName = document.getElementById('lastName').value;
+  loggedInUser.email = document.getElementById('email').value;
+  const newUsername = document.getElementById('username').value;
 
-  // Zaktualizuj dane użytkownika
-  loggedInUser.firstName = firstName;
-  loggedInUser.lastName = lastName;
-  loggedInUser.email = email;
-  loggedInUser.username = username;
+  // Check if the username has been changed
+  if (loggedInUser.username !== newUsername) {
+    // Update the username in the user's products
+    updateProductsOwner(loggedInUser.username, newUsername);
+  }
 
-  // Zapisz zmienione dane w localStorage
+  loggedInUser.username = newUsername;
+
+  // Save the updated user details to localStorage
   localStorage.setItem('loggedInUser', JSON.stringify(loggedInUser));
 
-  // Wyświetl ponownie szczegóły profilu po zapisaniu zmian
-  displayUserProfileDetails();
+  // Reload the page or update the displayed details
+  // You may need to modify this part based on your application flow
+  location.reload();
 }
 
-// Funkcja do wyświetlania szczegółów profilu użytkownika po zapisaniu zmian
-function displayUserProfileDetails() {
-  const profileDetails = document.getElementById('profileDetails');
-  const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+function updateProductsOwner(oldUsername, newUsername) {
+  const products = JSON.parse(localStorage.getItem('products')) || [];
 
-  // Wyświetl szczegóły profilu
-  if (loggedInUser) {
-    const table = document.createElement('table');
-    table.className = 'profile-table';
-    table.innerHTML = `
-      <tr><th>Imię</th><td>${loggedInUser.firstName}</td></tr>
-      <tr><th>Nazwisko</th><td>${loggedInUser.lastName}</td></tr>
-      <tr><th>Email</th><td>${loggedInUser.email}</td></tr>
-      <tr><th>Login</th><td>${loggedInUser.username}</td></tr>
-      <!-- Dodaj więcej wierszy zgodnie z potrzebą -->
-    `;
-    profileDetails.innerHTML = '';
-    profileDetails.appendChild(table);
-  }
+  // Update the owner of products with the old username to the new username
+  products.forEach(product => {
+    if (product.owner === oldUsername) {
+      product.owner = newUsername;
+    }
+  });
+
+  // Save the updated products back to localStorage
+  localStorage.setItem('products', JSON.stringify(products));
 }
