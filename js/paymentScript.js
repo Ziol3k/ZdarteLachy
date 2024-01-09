@@ -1,9 +1,28 @@
-// Dodaj do istniejącego pliku js/paymentScript.js
-
 document.addEventListener('DOMContentLoaded', () => {
     displayCartSummary();
-    displayCartItems();
+
+    // Dodaj obsługę zdarzenia dla formularza płatności
+    const paymentForm = document.getElementById('paymentForm');
+    paymentForm.addEventListener('submit', handlePaymentSubmission);
 });
+
+function handlePaymentSubmission(event) {
+    // Zapobiegaj domyślnej akcji formularza (przeładowanie strony)
+    event.preventDefault();
+
+    // Po zakończeniu płatności usuń zawartość koszyka z localStorage
+    clearCart();
+
+    // Wyświetl komunikat po zakończeniu płatności
+    alert('Płatność została zatwierdzona pomyślnie!');
+}
+
+function clearCart() {
+    // Wyczyść zawartość koszyka w localStorage
+    localStorage.removeItem('cart');
+    // Odśwież podsumowanie koszyka na stronie
+    displayCartSummary();
+}
 
 function displayCartSummary() {
     const cartSummaryContainer = document.getElementById('cartSummary');
