@@ -11,6 +11,10 @@ function addNewAd() {
     alert('Proszę wypełnić wszystkie pola formularza.');
     return;
   }
+  if(price<0){
+    alert('Cena nie może być mniejsza od zera');
+    return;
+  }
   
   let products = JSON.parse(localStorage.getItem('products')) || [];
   const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));

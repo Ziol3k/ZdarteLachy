@@ -44,10 +44,13 @@
   flex-wrap: wrap;
 }
 
+#zapisz{
+    margin: 3px;
+}
 
-
-
-
+#anuluj{
+    margin: 3px;
+}
 
 /* Style dla zakładek */
 .tab {
