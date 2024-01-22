@@ -320,6 +320,7 @@ textarea {
 
 .container {
   display: flex;
+  flex: 1 0 auto;
 }
 
 /* Stylizacja wyświetlanych produktów na stronie głównej */
@@ -412,7 +413,9 @@ textarea {
   margin-bottom: 5px;
 }
 
-
+.footer {
+  flex-shrink: 0;
+}
 
 footer {
   background-color: #333;
@@ -424,6 +427,7 @@ footer {
   width: 100%;
   height: 100px;
   position: relative;
+
 }
 
 .footer-title {

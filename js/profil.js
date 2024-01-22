@@ -131,13 +131,14 @@ function editUserProfile() {
   editButton.style.display = 'none';
 
   // Create a form for editing user details
+  //email nie waliduje i nie wiem dlaczego
   const editForm = document.createElement('form');
   editForm.innerHTML = `
     <label for="firstName">Imię:</label>
-    <input type="text" id="firstName" value="${loggedInUser.firstName}" required><br>
+    <input type="text" id="firstName" pattern = "([a-zA-Z]| )+" value="${loggedInUser.firstName}" required><br>
 
     <label for="lastName">Nazwisko:</label>
-    <input type="text" id="lastName" value="${loggedInUser.lastName}" required><br>
+    <input type="text" id="lastName" pattern = "([a-zA-Z]| )+" value="${loggedInUser.lastName}" required><br>
 
     <label for="email">Email:</label>
     <input type="email" id="email" value="${loggedInUser.email}" required><br>
@@ -145,7 +146,7 @@ function editUserProfile() {
     <label for="username">Login:</label>
     <input type="text" id="username" value="${loggedInUser.username}" required><br>
 
-    <button type="button" onclick="saveUserProfileChanges()">Zapisz</button>
+    <button type="submit" onclick="saveUserProfileChanges()">Zapisz</button>
     <button type="button" onclick="location.href = 'profil.html'">Anuluj</button>
   `;
 

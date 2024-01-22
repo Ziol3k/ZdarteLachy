@@ -11,7 +11,7 @@ function addNewAd() {
     alert('Proszę wypełnić wszystkie pola formularza.');
     return;
   }
-
+  
   let products = JSON.parse(localStorage.getItem('products')) || [];
   const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
 
@@ -44,9 +44,9 @@ function addNewAd() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  const submitBtn = document.getElementById('submitBtn');
+  const submitBtn = document.getElementById('formularzDodawania');
   if (submitBtn) {
-    submitBtn.addEventListener('click', (event) => {
+    submitBtn.addEventListener('submit', (event) => {
       event.preventDefault();
       addNewAd();
     });

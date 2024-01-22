@@ -85,6 +85,7 @@
     margin-bottom: 10px;
     border: 1px solid #ddd; /* Dodaj obramowanie dla textarea */
     border-radius: 5px;
+    resize: none;
 }
 
 #add-review-form button {

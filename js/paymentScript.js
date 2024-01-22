@@ -1,21 +1,24 @@
 document.addEventListener('DOMContentLoaded', () => {
     displayCartSummary();
+    formAutofillHandler();
 
     // Dodaj obsługę zdarzenia dla formularza płatności
     const paymentForm = document.getElementById('paymentForm');
     paymentForm.addEventListener('submit', handlePaymentSubmission);
 });
 
-function handlePaymentSubmission(event) {
-    // Zapobiegaj domyślnej akcji formularza (przeładowanie strony)
-    event.preventDefault();
+function formAutofillHandler(){
+    const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+    firstNameFill = document.getElementById('firstName');
+    lastNameFill = document.getElementById('lastName');
 
-    // Po zakończeniu płatności usuń zawartość koszyka z localStorage
-    clearCart();
-
-    // Wyświetl komunikat po zakończeniu płatności
-    alert('Płatność została zatwierdzona pomyślnie!');
+    if(loggedInUser){
+        firstNameFill.value = loggedInUser.firstName;
+        lastNameFill.value = loggedInUser.lastName;
+    }
 }
+
+
 
 function clearCart() {
     // Wyczyść zawartość koszyka w localStorage
@@ -72,6 +75,7 @@ function handlePaymentSubmission(event) {
 
   clearCart();
   alert('Płatność została zatwierdzona pomyślnie!');
+  window.location.replace("index.html");
 }
 
 function savePurchases() {
