@@ -146,13 +146,17 @@ function editUserProfile() {
     <label for="username">Login:</label>
     <input type="text" id="username" value="${loggedInUser.username}" required><br>
 
-    <button type="submit" id="zapisz" onclick="saveUserProfileChanges()">Zapisz</button>
+    <button type="submit" id="zapisz">Zapisz</button>
     <button type="button" id= "anuluj" onclick="location.href = 'profil.html'">Anuluj</button>
   `;
 
   // Replace existing details with the edit form
   profileDetails.innerHTML = '';
   profileDetails.appendChild(editForm);
+  profileDetails.addEventListener('submit', (event) => {
+    event.preventDefault();
+    saveUserProfileChanges();
+  });
 }
 
 function saveUserProfileChanges() {
