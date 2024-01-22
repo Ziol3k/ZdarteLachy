@@ -9,7 +9,8 @@ function displayCartItems() {
     const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
 
     if (cartItems.length === 0) {
-        cartContainer.innerHTML = '<p>Koszyk jest pusty.</p>';
+        //przycisk podsumowania robi to samo
+        //cartContainer.innerHTML = '<p>Koszyk jest pusty.</p>';
         return;
     }
 
@@ -36,13 +37,14 @@ function displayCartItems() {
                     <div class="cart-item-details">
                         <h3>${product.title}</h3>
                         <p>Cena: ${product.price} $</p>
+                        <p>Rozmiar: ${product.size}</p>
                         <p>Ilość: ${cartItemQuantities[productId]}</p>
                         <button onclick="removeFromCart(${product.id})">Usuń z koszyka</button>
                     </div>
                 </div>
             `;
         } else {
-            return '<p>Nieznany produkt w koszyku.</p>';
+            removeFromCart(parseInt(productId));
         }
     }).join('');
 
@@ -56,7 +58,7 @@ function displayCartItems() {
     const totalPriceHTML = `<p>Łączna cena: ${totalPrice.toFixed(2)} $</p>`;
     const proceedToCheckoutBtn = document.getElementById('proceedToCheckoutBtn');
 
-    proceedToCheckoutBtn.innerHTML = totalPriceHTML + 'Przejdź dalej';
+    proceedToCheckoutBtn.innerHTML = totalPriceHTML + 'Przejdź do podsumowania';
 
     proceedToCheckoutBtn.addEventListener('click', () => {
         // Przekieruj na stronę podsumowania
@@ -81,5 +83,6 @@ function removeFromCart(productId) {
     localStorage.setItem('cart', JSON.stringify(cartItems));
 
     // Ponownie wyświetl zawartość koszyka
-    displayCartItems();
+    //displayCartItems();
+    location.reload();
 }

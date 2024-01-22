@@ -13,7 +13,13 @@ if (!localStorage.getItem('products')) {
 }
 
 products = JSON.parse(localStorage.getItem('products'));
-displayProducts(products);
+
+
+//filtrowanie z strony produktów
+redirect = JSON.parse(localStorage.getItem('redirect'));
+redirect_search = JSON.parse(localStorage.getItem('redirect_search'));
+
+
 function filterProducts(category) {
   const filteredProducts = products.filter(product => product.category === category);
   displayProducts(filteredProducts);
@@ -47,39 +53,33 @@ function displayProducts(productsToDisplay) {
 
 
 
+
+
 document.addEventListener('DOMContentLoaded', () => {
   updateUIBasedOnLogin();
-  displayProducts(products);
+  if(redirect){
+       const redirectFilter = redirect;
+       filterProducts(redirectFilter);
+       localStorage.removeItem('redirect');
+   }
+   else if(redirect_search){
+       displayProducts(redirect_search);
+       localStorage.removeItem('redirect_search');
+   }
+   else{
+       displayProducts(products);
+   }
 
   const categoryLinks = document.querySelectorAll('.category-link');
   categoryLinks.forEach(link => {
     link.addEventListener('click', (e) => {
       e.preventDefault();
-      const category = e.target.dataset.category;
-      filterProducts(category);
-    });
-  });
-
-  const clearBtn = document.getElementById('clearLocalStorageBtn');
-  if (clearBtn) {
-    clearBtn.addEventListener('click', () => {
-      localStorage.clear();
-      alert("Dane w LocalStorage zostały wyczyszczone.");
-      location.reload();
-    });
-  }
-});
-
-document.addEventListener('DOMContentLoaded', () => {
-  updateUIBasedOnLogin();
-  displayProducts(products);
-
-  const categoryLinks = document.querySelectorAll('.category-link');
-  categoryLinks.forEach(link => {
-    link.addEventListener('click', (e) => {
-      e.preventDefault();
-      const category = e.target.dataset.category;
-      filterProducts(category);
+      if(e.target.dataset.category==="Wszystkie"){
+          displayProducts(products);
+      }else{
+          const category = e.target.dataset.category;
+          filterProducts(category);
+      }
     });
   });
 

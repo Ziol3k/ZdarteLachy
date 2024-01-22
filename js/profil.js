@@ -40,8 +40,9 @@ document.addEventListener('DOMContentLoaded', function() {
   // Wyświetlanie produktów wystawionych przez użytkownika
   displayProductsForUser(loggedInUser.username);
 
+  displayUserReviews();
 
-  displayUserPurchases()
+  displayUserPurchases();
 });
 
 // Funkcja do wyświetlania produktów użytkownika
@@ -51,6 +52,10 @@ function displayProductsForUser(username) {
 
   // Filtruj produkty należące do użytkownika
   const userProducts = products.filter(product => product.owner === username);
+  if(userProducts.length == 0){
+     listedItemsContainer.innerHTML = '<p>Brak produktów.</p>';
+     return;
+  }
 
   // Wyświetlanie produktów użytkownika
   listedItemsContainer.innerHTML = '';
@@ -68,6 +73,26 @@ function displayProductsForUser(username) {
   });
 }
 
+function displayUserReviews(){
+    const reviewContainer = document.getElementById('Reviews');
+    const reviews = JSON.parse(localStorage.getItem('productReviews')) || [];
+
+    const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+    const userId = loggedInUser.username;
+
+    if(reviews.length == 0){
+        reviewContainer.innerHTML = '<p>Brak opinii.</p>';
+        return;
+    }
+    //zrobic to wyglądające jakoś + możliwośc usuwania
+    reviews.forEach(review => {
+        if(review.user == userId){
+            const li = document.createElement('li');
+            li.innerHTML = `<strong>${review.user}</strong> (${review.date}): ${review.text}`;
+            reviewContainer.appendChild(li);
+        }
+      });
+}
 
 function displayUserPurchases() {
   const purchasesContainer = document.getElementById('YourOrders');
@@ -128,6 +153,8 @@ function editUserProfile() {
 
 function saveUserProfileChanges() {
   const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+  const userData = JSON.parse(localStorage.getItem('userData-' + loggedInUser.username));
+
 
   // Update user details based on the form values
   loggedInUser.firstName = document.getElementById('firstName').value;
@@ -135,6 +162,12 @@ function saveUserProfileChanges() {
   loggedInUser.email = document.getElementById('email').value;
   const newUsername = document.getElementById('username').value;
 
+
+  const userCheck = JSON.parse(localStorage.getItem('userData-' + newUsername));
+  if(userCheck){
+    alert('Nazwa użytkownika jest zajęta');
+    return;
+  }
   // Check if the username has been changed
   if (loggedInUser.username !== newUsername) {
     // Update the username in the user's products
@@ -143,12 +176,18 @@ function saveUserProfileChanges() {
     // Update the username in the product reviews
     updateReviewsUsername(loggedInUser.username, newUsername);
   }
-
+  oldUsername = loggedInUser.username;
   loggedInUser.username = newUsername;
 
-  // Save the updated user details to localStorage
-  localStorage.setItem('loggedInUser', JSON.stringify(loggedInUser));
+  userData.email = document.getElementById('email').value;
+  userData.username = document.getElementById('username').value;
+  userData.firstName = document.getElementById('firstName').value;
+  userData.lastName = document.getElementById('lastName').value;
 
+  // Save the updated user details to localStorage
+  localStorage.setItem('userData-' + newUsername, JSON.stringify(userData));
+  localStorage.setItem('loggedInUser', JSON.stringify(loggedInUser));
+  localStorage.removeItem('userData-' + oldUsername);
   // Reload the page or update the displayed details
   // You may need to modify this part based on your application flow
   location.reload();
@@ -189,3 +228,4 @@ function deleteProductByID(productID){
   localStorage.setItem('products', JSON.stringify(products));
   location.reload();
 }
+

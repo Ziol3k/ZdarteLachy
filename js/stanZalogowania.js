@@ -1,3 +1,5 @@
+addAnnouncementBtnAlert = false;
+
 function updateUIBasedOnLogin() {
   // Pobieranie informacji o zalogowanym użytkowniku z localStorage
   const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
@@ -18,6 +20,14 @@ function updateUIBasedOnLogin() {
 
   // Logika dla przycisku Dodaj ogłoszenie
   if (addAnnouncementBtn) {
+    addAnnouncementBtn.addEventListener('click', function(event) {
+        //event.preventDefault();
+        if(!loggedInUser && !addAnnouncementBtnAlert){
+            alert("Dodanie ogłoszenia wymaga zalogowania.");
+            addAnnouncementBtnAlert = true;
+            //location.href = 'logowanie_rejestracja.html';
+        }
+    });
     addAnnouncementBtn.href = loggedInUser ? 'dodaj_ogloszenie.html' : 'logowanie_rejestracja.html';
   }
 

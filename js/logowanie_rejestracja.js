@@ -43,8 +43,21 @@ function handleRegister(event) {
   }
 
   const userData = { email, username, firstName, lastName, password };
-  localStorage.setItem('userData-' + username, JSON.stringify(userData));
-  localStorage.setItem('loggedInUser', JSON.stringify(userData));
-  alert('Rejestracja przebiegła pomyślnie.');
-  window.location.href = 'profil.html';
+  const userCheck = JSON.parse(localStorage.getItem('userData-' + username));
+  if(userCheck){
+    if(userCheck.username === userData.username){
+        alert('Nazwa użytkownika jest zajęta.');
+    }
+    else if(userCheck.email === userData.email){
+        alert('Adres email jest w użyciu.');
+    }
+    else{
+        alert('Użytkownik już istnieje');
+    }
+  }else{
+      localStorage.setItem('userData-' + username, JSON.stringify(userData));
+      localStorage.setItem('loggedInUser', JSON.stringify(userData));
+      alert('Rejestracja przebiegła pomyślnie.');
+      window.location.href = 'profil.html';
+  }
 }

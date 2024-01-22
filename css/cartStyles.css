@@ -76,5 +76,9 @@ button:hover {
 
 .checkout-container {
     margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
+    width: calc(100%);
 }
