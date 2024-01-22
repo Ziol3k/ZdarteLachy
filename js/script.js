@@ -83,15 +83,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  const clearBtn = document.getElementById('clearLocalStorageBtn');
-  if (clearBtn) {
-    clearBtn.addEventListener('click', () => {
-      localStorage.clear();
-      alert("Dane w LocalStorage zostały wyczyszczone.");
-      location.reload();
-    });
-  }
-
   const searchInput = document.querySelector('.search-bar input');
   const searchButton = document.querySelector('.search-bar button');
 

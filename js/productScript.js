@@ -69,6 +69,7 @@ function addReview() {
   const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
   if (!loggedInUser) {
     alert('Musisz być zalogowany, aby dodać opinię.');
+    window.location.href = "logowanie_rejestracja.html";
     return;
   }
 

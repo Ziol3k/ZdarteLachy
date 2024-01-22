@@ -18,6 +18,15 @@ document.addEventListener('DOMContentLoaded', function() {
   const profileDetails = document.getElementById('profileDetails');
   const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
 
+  //clear button
+  const clearBtn = document.getElementById('clearLocalStorageBtn');
+  if (clearBtn) {
+    clearBtn.addEventListener('click', () => {
+        localStorage.clear();
+        alert("Dane w LocalStorage zostały wyczyszczone.");
+        location.reload();
+    });
+  }
   // Wyświetl szczegóły profilu
   if (loggedInUser) {
     const table = document.createElement('table');

@@ -21,6 +21,14 @@ function addNewAd() {
 
   // Generowanie unikalnego ID dla nowego produktu
   const newId = products.length > 0 ? Math.max(...products.map(p => p.id)) + 1 : 1;
+  const imageMap = new Map([
+  ["Kurtki","kurtka.jpg"],
+  ["Bluzy","Bluza.jpg"],
+  ["Koszulki","koszulka.jpg"],
+  ["Koszule","koszula.jpg"],
+  ["Spodnie","spodnie.jpg"]
+  ])
+  itemImage = imageMap.get(category) || "default.jpg";
 
   const newProduct = {
     id: newId,
@@ -31,7 +39,7 @@ function addNewAd() {
     size,
     material,
     price: Number(price),
-    imageName: "default.jpg",
+    imageName: itemImage,
     owner: loggedInUser.username // Dodajemy nazwę użytkownika jako właściciela produktu
   };
 
