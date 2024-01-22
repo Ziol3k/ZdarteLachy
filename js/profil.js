@@ -127,23 +127,26 @@ function displayUserPurchases() {
 function editUserProfile() {
   const profileDetails = document.getElementById('profileDetails');
   const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+  const editButton = document.getElementById('editProfileBtn');
+  editButton.style.display = 'none';
 
   // Create a form for editing user details
   const editForm = document.createElement('form');
   editForm.innerHTML = `
     <label for="firstName">Imię:</label>
-    <input type="text" id="firstName" value="${loggedInUser.firstName}"><br>
+    <input type="text" id="firstName" value="${loggedInUser.firstName}" required><br>
 
     <label for="lastName">Nazwisko:</label>
-    <input type="text" id="lastName" value="${loggedInUser.lastName}"><br>
+    <input type="text" id="lastName" value="${loggedInUser.lastName}" required><br>
 
     <label for="email">Email:</label>
-    <input type="email" id="email" value="${loggedInUser.email}"><br>
+    <input type="email" id="email" value="${loggedInUser.email}" required><br>
 
     <label for="username">Login:</label>
-    <input type="text" id="username" value="${loggedInUser.username}"><br>
+    <input type="text" id="username" value="${loggedInUser.username}" required><br>
 
     <button type="button" onclick="saveUserProfileChanges()">Zapisz</button>
+    <button type="button" onclick="location.href = 'profil.html'">Anuluj</button>
   `;
 
   // Replace existing details with the edit form
@@ -164,7 +167,7 @@ function saveUserProfileChanges() {
 
 
   const userCheck = JSON.parse(localStorage.getItem('userData-' + newUsername));
-  if(userCheck){
+  if(userCheck && newUsername!=loggedInUser.username){
     alert('Nazwa użytkownika jest zajęta');
     return;
   }
@@ -187,7 +190,9 @@ function saveUserProfileChanges() {
   // Save the updated user details to localStorage
   localStorage.setItem('userData-' + newUsername, JSON.stringify(userData));
   localStorage.setItem('loggedInUser', JSON.stringify(loggedInUser));
-  localStorage.removeItem('userData-' + oldUsername);
+  if(newUsername!=oldUsername){
+    localStorage.removeItem('userData-' + oldUsername);
+  }
   // Reload the page or update the displayed details
   // You may need to modify this part based on your application flow
   location.reload();

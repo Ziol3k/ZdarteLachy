@@ -43,11 +43,12 @@ function displayProductDetails(product) {
 
 function addToCart(productId) {
   const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
-  found = products.find((element) => (element.id === productId && element.owner === loggedInUser.username));
-  if(found){
+  if(loggedInUser){
+    found = products.find((element) => (element.id === productId && element.owner === loggedInUser.username));
+    if(found){
      alert('Nie możesz kupić swojego produktu!');
      return;
-    }
+    }};
   const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
   cartItems.push(productId);
   localStorage.setItem('cart', JSON.stringify(cartItems));
