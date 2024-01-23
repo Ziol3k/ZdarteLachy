@@ -67,6 +67,21 @@ nav ul li {
   margin-right: 20px;
 }
 
+.search-bar button {
+  background-color: #333; /* Tło przycisku - takie samo jak kolor tła */
+  color: #fff; /* Kolor tekstu */
+  padding: 10px 20px; /* Padding */
+  border-radius: 20px; /* Zaokrąglone rogi */
+  border: none; /* Usunięcie obramowania */
+  cursor: pointer; /* Kursor wskazujący na przycisk */
+  transition: background-color 0.3s ease; /* Animacja tła */
+}
+
+
+.search-bar button:hover {
+  background-color: #555; /* Zmiana koloru tła po najechaniu */
+}
+
 nav a,
 nav button {
   text-decoration: none;
@@ -127,9 +142,7 @@ nav a:hover {
   transition: background-color 0.3s ease;
 }
 
-.search-bar button {
-  background-color: #555;
-}
+
 
 .cart:hover,
 .login-register:hover,
