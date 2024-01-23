@@ -55,7 +55,7 @@ function displayCartItems() {
     }, 0);
 
     // Wyświetl łączną cenę i przycisk "Przejdź dalej"
-    const totalPriceHTML = `<p>Łączna cena: ${totalPrice.toFixed(2)} $</p>`;
+    const totalPriceHTML = `<p>Łączna kowta: ${totalPrice.toFixed(2)} $</p>`;
     const proceedToCheckoutBtn = document.getElementById('proceedToCheckoutBtn');
 
     proceedToCheckoutBtn.innerHTML = totalPriceHTML + 'Przejdź do podsumowania';
