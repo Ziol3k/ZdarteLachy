@@ -90,5 +90,49 @@
 }
 
 
+#YourData {
+  text-align: center; /* Wyśrodkowanie tekstu */
+  display: flex;
+  flex-direction: column; /* Ustawienie elementów jeden pod drugim */
+  align-items: center; /* Wyśrodkowanie elementów w poziomie */
+  justify-content: center; /* Wyśrodkowanie elementów w pionie */
+  padding: 20px;
+}
+
+#editProfileBtn {
+  margin-top: 10px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #333;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#Reviews {
+  display: flex;
+  flex-direction: column; /* Ustawia boxy jeden pod drugim */
+  align-items: center; /* Wyśrodkowuje boxy w poziomie */
+  justify-content: center; /* Opcjonalnie, wyśrodkowuje boxy w pionie */
+}
+
+
+
+.review-box {
+  width: 50%; /* lub inna szerokość według preferencji */
+
+  background-color: #f9f9f9; /* Kolor tła dla boxa opinii */
+  margin-bottom: 10px; /* Odstęp między boxami */
+  padding: 10px; /* Wewnętrzny odstęp boxa */
+  border: 1px solid #ddd; /* Subtelna obramówka */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Lekki cień dla głębi */
+}
+
+
+
+
+
+
 /* Dodaj inne style według potrzeb */
 

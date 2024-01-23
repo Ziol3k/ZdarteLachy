@@ -82,25 +82,26 @@ function displayProductsForUser(username) {
   });
 }
 
-function displayUserReviews(){
-    const reviewContainer = document.getElementById('Reviews');
-    const reviews = JSON.parse(localStorage.getItem('productReviews')) || [];
+function displayUserReviews() {
+  const reviewContainer = document.getElementById('Reviews');
+  const reviews = JSON.parse(localStorage.getItem('productReviews')) || [];
 
-    const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
-    const userId = loggedInUser.username;
+  const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+  const userId = loggedInUser.username;
 
-    if(reviews.length == 0){
-        reviewContainer.innerHTML = '<p>Brak opinii.</p>';
-        return;
+  if (reviews.length == 0) {
+    reviewContainer.innerHTML = '<p>Brak opinii.</p>';
+    return;
+  }
+
+  reviews.forEach(review => {
+    if (review.user == userId) {
+      const div = document.createElement('div');
+      div.className = 'review-box';
+      div.innerHTML = `<strong>${review.user}</strong> (${review.date}): ${review.text}`;
+      reviewContainer.appendChild(div);
     }
-    //zrobic to wyglądające jakoś + możliwośc usuwania
-    reviews.forEach(review => {
-        if(review.user == userId){
-            const li = document.createElement('li');
-            li.innerHTML = `<strong>${review.user}</strong> (${review.date}): ${review.text}`;
-            reviewContainer.appendChild(li);
-        }
-      });
+  });
 }
 
 function displayUserPurchases() {
