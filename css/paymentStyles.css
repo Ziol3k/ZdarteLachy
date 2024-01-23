@@ -2,9 +2,9 @@
 
 /* Styl dla sekcji podsumowania i formularza */
 .summary-container {
-    margin: 20px;
+    margin: 20px auto; /* Top and bottom margins are 20px, left and right are auto */
     display: flex;
-    justify-content: space-between; /* Rozstawienie elementów na krańcach kontenera */
+    justify-content: space-between; /* Elements spaced out at the ends of the container */
 }
 
 /* Styl dla lewej części podsumowania (koszyka) */
@@ -34,4 +34,8 @@
 .cart-total {
     margin-top: 20px;
     font-weight: bold;
+}
+
+#paymentForm button[type="submit"] {
+    margin-top: 20px; /* Adjust the value as needed */
 }
